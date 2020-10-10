@@ -4,4 +4,4 @@
 - 서아림: 
 - 차동엽: 
 - 박해솔: 
-- 정진호: zzzinho
+- 정진호: [zzzinho](https://github.com/zzzinho)
