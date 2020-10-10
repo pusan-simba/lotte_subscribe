@@ -1,0 +1,9 @@
+venv_lotte/
+*.sqlite3
+__pycache__/
+migrations/
+media/
+static/
+.DS_Store
+*.ipynb
+settings.py
