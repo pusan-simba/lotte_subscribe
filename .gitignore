@@ -6,4 +6,4 @@ media/
 static/
 .DS_Store
 *.ipynb
-settings.py
+secrets.json
