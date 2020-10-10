@@ -1,0 +1,15 @@
+[Unit]
+Description=uWSGI service
+After=syslog.target
+
+[Service]
+ExecStart=/srv/gdg_devfest2020/venv_devfest2020/bin/uwsgi -i /srv/gdg_devfest2020/quizgame/.config/uwsgi/quizgame.ini
+
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target
