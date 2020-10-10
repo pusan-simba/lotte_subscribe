@@ -3,7 +3,7 @@ Description=uWSGI service
 After=syslog.target
 
 [Service]
-ExecStart=/srv/gdg_devfest2020/venv_devfest2020/bin/uwsgi -i /srv/gdg_devfest2020/quizgame/.config/uwsgi/quizgame.ini
+ExecStart=/srv/lotte_subscribe/venv_lotte/bin/uwsgi -i /srv/lotte_subscribe/lotte_subscribe/.config/uwsgi/lotte_subscribe.ini
 
 Restart=always
 KillSignal=SIGQUIT
