@@ -9,6 +9,13 @@
     {% else %}
         <div><a href="{% url 'like_toggle' item.id %}">좋아요</a></div>
     {% endif %}
+
+    {% if is_subscribed %}
+        <div><a href="{% url 'subscribe_toggle' item.id %}">안구독</a></div>
+    {% else %}
+        <div><a href="{% url 'subscribe_toggle' item.id %}">구독</a></div>
+    {% endif %}
+
     <div>{{ item.name }}</div>
     <div>{{ item.explain }}</div>
     <div>{{ item.category }}</div>

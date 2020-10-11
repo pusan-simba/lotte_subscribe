@@ -29,9 +29,17 @@ def get_item(request, item_id):
             is_liked = True
         except:
             is_liked = False
+        try:
+            check = user.subscribes.all().get(id=item_id)
+            is_subscribed = True
+        except:
+            is_subscribed = False
     else:
         is_liked = False
+        is_subscribed = False
     context['is_liked'] = is_liked
+    context['is_subscribed'] = is_subscribed
+
 
     item = Item.objects.get(id=item_id)
     context['item'] = item
@@ -46,13 +54,22 @@ def like_toggle(request, item_id):
     username = request.user
     user = User.object.get(username=username)
 
-    item = Item.objects.get(id=item_id)
-
     try:
         check = user.likes.all().get(id=item_id)
         user.likes.remove(item_id)
     except:
         user.likes.add(item_id)
-    
+
     return redirect('item', item_id)
 
+@login_required
+def subscribe_toggle(request, item_id):
+    user = User.object.get(username=request.user)
+
+    try:
+        check = user.subscribes.all().get(id=item_id)
+        user.subscribes.remove(item_id)
+    except:
+        user.subscribes.add(item_id)
+    
+    return redirect('item', item_id)
