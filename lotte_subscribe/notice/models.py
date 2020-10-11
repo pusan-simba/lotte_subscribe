@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 class Notice(models.Model):
-    title = models.CharField(max_length=20)
+    title = models.CharField(max_length=40)
     content = models.TextField()
     date = models.DateField(auto_now=True)
     image = models.ImageField(blank=True)

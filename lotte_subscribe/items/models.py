@@ -8,7 +8,7 @@ class Category(models.Model):
         return self.name
 
 class Item(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=40)
     explain = models.TextField()
     category = models.ForeignKey(to=Category, on_delete=models.CASCADE)
 
