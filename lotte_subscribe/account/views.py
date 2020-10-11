@@ -1,6 +1,7 @@
+from django.contrib.auth.decorators import login_required
 from django.http import request
 from django.shortcuts import redirect, render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 from .models import User
 # Create your views here.
@@ -39,3 +40,9 @@ def lotte_sign_up(request):
             return render(request, 'signup.html', {'message':message})
     else:
         return render(request, 'signup.html')
+
+@login_required
+def lotte_logout(request):
+    logout(request)
+
+    return redirect('home')

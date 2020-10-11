@@ -4,6 +4,10 @@
 {% endblock head %}
 
 {% block content %}
+    {% if is_authenticated %}
+        <div><a href="{% url 'login' %}">로그인</a></div>
+    {% else %}
+    {% endif %}
     {% if is_liked %}
         <div><a href="{% url 'like_toggle' item.id %}">안좋아요</a></div>
     {% else %}

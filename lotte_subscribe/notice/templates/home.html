@@ -4,6 +4,12 @@
 {% endblock head %}
 
 {% block content %}
+    {% if user.is_authenticated %}
+        <div><a href="{% url 'logout' %}">로그아웃 넣을까</a></div>
+    {% else %}
+        <div><a href="{% url 'login' %}">로그인</a></div>
+    {% endif %}
+
     {% for notice in notices %}
         <div><a href="{% url 'notice' notice.id %}">{{ notice.title }}</a></div>
         <div>{{ notice.content }}</div>

@@ -11,5 +11,6 @@
         <label for="password">password</label><input type="text" name="password">
         <input type="submit" value="로그인">
     </form>
+    <div><a href="{% url 'signup' %}">회원가입</a></div>
     <div>{{ message }}</div>
 {% endblock content %}
