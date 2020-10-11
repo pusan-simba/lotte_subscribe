@@ -29,6 +29,3 @@ def get_item(request, item_id):
     context['categories'] = categories
 
     return render(request, 'item.html', context)
-
-
-def subscribe(request):
