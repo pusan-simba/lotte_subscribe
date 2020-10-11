@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>아이템</title>
+{% endblock head %}
+
+{% block content %}
+    <div><a href="">{{ item.name }}</a></div>
+    <div>{{ item.exlain }}</div>
+    <div>{{ item.category }}</div>
+    <br>
+    {% for category in categories %}
+        <div><a href="{% url 'category' category.id %}">{{ category.name }}</a></div>
+    {% endfor %}
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>공지사항</title>
+{% endblock head%}
+
+{% block content %}
+    <div>{{ notice.title }}</div>
+    <div>{{ notice.content }}</div>
+    <div>{{ notice.date }}</div>
+    <div>{{ notice.image }}</div>
+{% endblock content %}

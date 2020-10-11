@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>카테고리</title>
+{% endblock head %}
+
+{% block content %}
+    {% for item in items %}
+        <div><a href="{% url 'item' item.id %}">{{ item.name }}</a></div>
+        <div>{{ item.exlain }}</div>
+        <div>{{ item.category }}</div>
+    {% endfor %}
+    <br>
+    {% for category in categories %}
+        <div><a href="{% url 'category' category.id %}">{{ category.name }}</a></div>
+    {% endfor %}
+{% endblock content %}

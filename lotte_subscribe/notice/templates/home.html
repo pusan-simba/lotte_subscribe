@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>home</title>
+{% endblock head %}
+
+{% block content %}
+    {% for notice in notices %}
+        <div><a href="{% url 'notice' notice.id %}">{{ notice.title }}</a></div>
+        <div>{{ notice.content }}</div>
+        <div>{{ notice.date }}</div>
+        <div>{{ notice.image }}</div>
+    {% endfor %}
+    <br>
+    {% for category in categories %}
+        <div><a href="{% url 'category' category.id %}">{{ category.name }}</a></div>
+    {% endfor %}
+{% endblock content %}
