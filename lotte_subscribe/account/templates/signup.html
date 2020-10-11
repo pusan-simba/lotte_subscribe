@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <title>로그인</title>
+    <title>회원가입</title>
 {% endblock head %}
 
 {% block content %}
-    <form action="{% url 'login' %}" method="POST">
+    <form action="{% url 'signup' %}" method="POST">
         {% csrf_token %}
         <label for="username">username</label><input type="text" name="username">
         <label for="password">password</label><input type="text" name="password">
-        <input type="submit" value="로그인">
+        <label for="name">name</label><input type="text" name="name">
+        <input type="submit" value="회원가입">
     </form>
     <div>{{ message }}</div>
 {% endblock content %}
