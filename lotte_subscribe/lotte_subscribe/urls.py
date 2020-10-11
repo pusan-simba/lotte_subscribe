@@ -24,4 +24,5 @@ urlpatterns = [
     path('', home),
     path('home/', include('notice.urls')),
     path('subscribes/', include('items.urls')),
+    path('account/', include('account.urls')),
 ]

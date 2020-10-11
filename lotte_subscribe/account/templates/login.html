@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>로그인</title>
+{% endblock head %}
+
+{% block content %}
+    <form action="{% url 'login' %}" method="POST">
+        <label for="username">username</label><input type="text" name="username">
+        <label for="password">password</label><input type="text" name="password">
+        <input type="submit" value="로그인">
+    </form>
+{% endblock content %}

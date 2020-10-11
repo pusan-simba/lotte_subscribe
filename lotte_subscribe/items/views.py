@@ -1,7 +1,8 @@
 from django.http import request
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import Item, Category, Option
+from account.models import User
 # Create your views here.
 def hello_simba(request):
     return render(request, 'simba.html')
@@ -28,3 +29,6 @@ def get_item(request, item_id):
     context['categories'] = categories
 
     return render(request, 'item.html', context)
+
+
+def subscribe(request):
