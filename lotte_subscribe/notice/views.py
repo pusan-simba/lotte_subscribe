@@ -6,6 +6,9 @@ from items.models import Category
 
 # Create your views here.
 def home(request):
+    if request.method == 'POST':
+        print(request)
+    
     context = {}
     notices = Notice.objects.all()
     context['notices'] = notices
