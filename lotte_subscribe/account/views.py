@@ -48,7 +48,7 @@ def lotte_sign_up(request):
         context = dict()
         context['address_url'] = address_url
         context['key'] = key
-        context['returnUrl'] = 'http://127.0.0.1:8000'
+        context['returnUrl'] = 'http://13.125.213.141'
         context['resultType'] = '4'
 
         return render(request, 'signup.html', context)
