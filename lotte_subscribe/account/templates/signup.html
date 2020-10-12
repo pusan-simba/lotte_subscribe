@@ -20,7 +20,7 @@
         </div>
         <input type="submit" value="회원가입">
     </form>
-    <form action="{{ address_url }}" method="POST">
+    <form action="{{ address_url }}" method="GET">
         {% csrf_token %}
         <input type="hidden" value="{{ key }}" name="confmKey">
         <input type="hidden" value="{{ returnUrl }}" name="returnUrl">
