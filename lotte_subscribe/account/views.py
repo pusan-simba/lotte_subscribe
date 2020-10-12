@@ -27,7 +27,8 @@ def lotte_login(request):
         return render(request, 'login.html')
 
 def lotte_sign_up(request):
-    if request.method == 'GET':
+    if request.method == 'POST':
+        print('post')
         username = request.POST['username']
         password = request.POST['password']
         name = request.POST['name']
