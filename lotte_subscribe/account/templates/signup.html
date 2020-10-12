@@ -21,8 +21,10 @@
         <input type="submit" value="회원가입">
     </form>
     <form action="{{ address_url }}" method="POST">
+        {% csrf_token %}
         <input type="hidden" value="{{ key }}" name="confmKey">
         <input type="hidden" value="{{ returnUrl }}" name="returnUrl">
+        <input type="hidden" value="{{ resultType }}" name="resultType">
         <input type="submit" value="주소검색">
     </form>
     <div>{{ message }}</div>
