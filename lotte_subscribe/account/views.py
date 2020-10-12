@@ -28,7 +28,6 @@ def lotte_login(request):
 
 def lotte_sign_up(request):
     if request.method == 'POST':
-        print('post')
         username = request.POST['username']
         password = request.POST['password']
         name = request.POST['name']
@@ -49,7 +48,7 @@ def lotte_sign_up(request):
         context = dict()
         context['address_url'] = address_url
         context['key'] = key
-        context['returnUrl'] = 'http://127.0.0.1:8000/account/signup/'
+        context['returnUrl'] = 'http://127.0.0.1:8000'
         context['resultType'] = '4'
 
         return render(request, 'signup.html', context)
