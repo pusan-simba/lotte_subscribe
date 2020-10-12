@@ -1,11 +1,13 @@
-from typing import ItemsView
 from django.contrib.auth.decorators import login_required
 from django.http import request
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
+from django.conf import settings
 
 from .models import User
 from items.models import Item, Category
+
+import requests, os
 # Create your views here.
 def lotte_login(request):
     context = {}
@@ -41,7 +43,14 @@ def lotte_sign_up(request):
             message = '존재하는 아이디입니다.'
             return render(request, 'signup.html', {'message':message})
     else:
-        return render(request, 'signup.html')
+        address_url = 'http://www.juso.go.kr/addrlink/addrLinkUrl.do'
+        key = settings.ADDRESS_API_KEY
+        context = dict()
+        context['address_url'] = address_url
+        context['key'] = key
+        context['returnUrl'] = 'http://127.0.0.1:8000/account/signup/'
+
+        return render(request, 'signup.html', context)
 
 @login_required
 def lotte_logout(request):
@@ -102,3 +111,7 @@ def my_likes(request):
     context['is_subscribed'] = is_subscribed
 
     return render(request, 'category.html', context)
+
+
+def address_api(request):
+    response = request('http://www.juso.go.kr/addrlink/addrLinkUrl.do')

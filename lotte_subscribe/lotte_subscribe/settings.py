@@ -24,12 +24,13 @@ import os, json
 from django.core.exceptions import ImproperlyConfigured
 
 
-secret_file = os.path.join(BASE_DIR, 'secrets.json')
+SECRET_FILE = os.path.join(BASE_DIR, 'secrets.json')
 
-with open(secret_file) as f:
+with open(SECRET_FILE) as f:
     SECRET = json.loads(f.read())
 
 SECRET_KEY = SECRET["SECRET_KEY"]
+ADDRESS_API_KEY = SECRET["ADDRESS_API_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

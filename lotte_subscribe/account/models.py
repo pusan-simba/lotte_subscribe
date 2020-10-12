@@ -29,6 +29,9 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     username = models.EmailField(unique=True)
     name = models.CharField(max_length=20)
+    addresss = models.TextField(null=True)
+    phone_number = models.CharField(max_length=15, null=True)
+
     likes = models.ManyToManyField(to=Item, related_name='likers')
     subscribes = models.ManyToManyField(to=Item, related_name='subscribers')
     
