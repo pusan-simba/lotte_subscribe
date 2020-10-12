@@ -24,7 +24,7 @@ def get_category(request, category_id):
 def get_item(request, item_id):
     context = {}
     if request.user is not None:
-        user = User.object.get(username=request.user)
+        user = request.user
         try:
             check = user.likes.all().get(id=item_id)
             is_liked = True
@@ -52,8 +52,7 @@ def get_item(request, item_id):
 
 @login_required
 def like_toggle(request, item_id):
-    username = request.user
-    user = User.object.get(username=username)
+    user = request.user
 
     try:
         check = user.likes.all().get(id=item_id)
@@ -65,7 +64,7 @@ def like_toggle(request, item_id):
 
 @login_required
 def subscribe_toggle(request, item_id):
-    user = User.object.get(username=request.user)
+    user = request.user
 
     try:
         check = user.subscribes.all().get(id=item_id)
@@ -84,5 +83,5 @@ def search(request):
 
     categories = Category.objects.all()
     context['categories'] = categories
-    
+
     return render(request, 'search.html', context)

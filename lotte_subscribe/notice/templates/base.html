@@ -8,6 +8,7 @@
     <form action="{% url 'search' %}" method="GET">
         <label for="query">검색</label><input type="text" name="query">
     </form>
+    <div><a href="{% url 'home' %}">홈 버튼</a></div>
     {% block content %}{% endblock content %}
 </body>
 </html>

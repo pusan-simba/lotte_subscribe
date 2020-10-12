@@ -1,18 +1,15 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <title>검색 결과</title>
-{% endblock head%}
+    <title>마이 페이지</title>
+{% endblock head %}
 
-{% block content %}
+{% block content %} 
+    <div><a href="">내 정보 수정</a></div>
+    <div><a href="{% url 'mysub' %}">내 구독 관리</a></div>
+    <div><a href="{% url 'mylike' %}">구독 찜 리스트</a></div>
     {% for category in categories %}
         <div><a href="{% url 'category' category.id %}">{{ category.name }}</a></div>
     {% endfor %}
     <div><a href="{% url 'mypage' %}">마이페이지</a></div>
-
-    {% for item in items %}
-        <div>{{ item.name }}</div>
-        <div>{{ item.explain }}</div>
-        <div>{{ item.image }}</div>
-    {% endfor %}
 {% endblock content %}

@@ -13,4 +13,5 @@
     {% for category in categories %}
         <div><a href="{% url 'category' category.id %}">{{ category.name }}</a></div>
     {% endfor %}
+    <div><a href="{% url 'mypage' %}">마이페이지</a></div>
 {% endblock content %}
