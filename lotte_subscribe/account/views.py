@@ -27,7 +27,7 @@ def lotte_login(request):
         return render(request, 'login.html')
 
 def lotte_sign_up(request):
-    if request.method == 'POST':
+    if request.method == 'GET':
         username = request.POST['username']
         password = request.POST['password']
         name = request.POST['name']
@@ -50,7 +50,7 @@ def lotte_sign_up(request):
         context['key'] = key
         context['returnUrl'] = 'http://127.0.0.1:8000/account/signup/'
         context['resultType'] = '4'
-        
+
         return render(request, 'signup.html', context)
 
 @login_required
