@@ -10,6 +10,7 @@ class Category(models.Model):
 class Item(models.Model):
     name = models.CharField(max_length=40)
     explain = models.TextField()
+    image = models.ImageField(blank=True)
     category = models.ForeignKey(to=Category, on_delete=models.CASCADE)
 
     def __str__(self):

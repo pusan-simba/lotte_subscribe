@@ -1,3 +1,4 @@
+from os import name
 from django.http import request
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
@@ -73,3 +74,15 @@ def subscribe_toggle(request, item_id):
         user.subscribes.add(item_id)
     
     return redirect('item', item_id)
+
+def search(request):
+    context = dict()
+    
+    query = request.GET['query']
+    items = Item.objects.filter(name__contains=query)
+    context['items'] = items
+
+    categories = Category.objects.all()
+    context['categories'] = categories
+    
+    return render(request, 'search.html', context)

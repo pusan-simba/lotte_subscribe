@@ -5,6 +5,9 @@
     {% block head %}{% endblock head %}
 </head>
 <body>
+    <form action="{% url 'search' %}" method="GET">
+        <label for="query">검색</label><input type="text" name="query">
+    </form>
     {% block content %}{% endblock content %}
 </body>
 </html>

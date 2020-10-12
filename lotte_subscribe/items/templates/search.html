@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>검색 결과</title>
+{% endblock head%}
+
+{% block content %}
+    {% for category in categories %}
+        <div><a href="{% url 'category' category.id %}">{{ category.name }}</a></div>
+    {% endfor %}
+    
+    {% for item in items %}
+        <div>{{ item.name }}</div>
+        <div>{{ item.explain }}</div>
+        <div>{{ item.image }}</div>
+    {% endfor %}
+{% endblock content %}
