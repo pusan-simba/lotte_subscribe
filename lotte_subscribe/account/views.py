@@ -47,7 +47,10 @@ def lotte_sign_up(request):
 
 @csrf_exempt
 def signup_page(request):
-    print(request)
+    try:
+        print(request['POST'])
+    except:
+        pass
     address_url = 'http://www.juso.go.kr/addrlink/addrLinkUrl.do'
     key = settings.ADDRESS_API_KEY
     context = dict()
