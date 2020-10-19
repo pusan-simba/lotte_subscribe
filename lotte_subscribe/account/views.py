@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 from django.http import request
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
@@ -25,7 +26,8 @@ def lotte_login(request):
             return render(request, 'login.html', context)
     else:
         return render(request, 'login.html')
-
+        
+@csrf_exempt
 def lotte_sign_up(request):
     if request.method == 'POST':
         username = request.POST['username']
