@@ -52,7 +52,7 @@ def lotte_sign_up(request):
         except:
             message = '존재하는 아이디입니다.'
             context['message'] = message
-            return render(request, 'signup.html', context)
+            return redirect('signup')
 
     return render(request, 'signup.html', context)
 
