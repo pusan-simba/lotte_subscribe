@@ -52,6 +52,8 @@ def lotte_sign_up(request):
         except:
             message = '존재하는 아이디입니다.'
             return render(request, 'signup.html', {'message':message})
+            
+    return render(request, 'signup.html', context)
 
 @csrf_exempt
 def signup_page(request):
