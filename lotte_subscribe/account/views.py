@@ -26,7 +26,7 @@ def lotte_login(request):
             return render(request, 'login.html', context)
     else:
         return render(request, 'login.html')
-        
+
 @csrf_exempt
 def lotte_sign_up(request):
     if request.method == 'POST':
@@ -44,16 +44,18 @@ def lotte_sign_up(request):
         except:
             message = '존재하는 아이디입니다.'
             return render(request, 'signup.html', {'message':message})
-    else:
-        address_url = 'http://www.juso.go.kr/addrlink/addrLinkUrl.do'
-        key = settings.ADDRESS_API_KEY
-        context = dict()
-        context['address_url'] = address_url
-        context['key'] = key
-        context['returnUrl'] = 'http://13.125.213.141/account/signup/'
-        context['resultType'] = '4'
 
-        return render(request, 'signup.html', context)
+@csrf_exempt
+def signup_page(request):
+    address_url = 'http://www.juso.go.kr/addrlink/addrLinkUrl.do'
+    key = settings.ADDRESS_API_KEY
+    context = dict()
+    context['address_url'] = address_url
+    context['key'] = key
+    context['returnUrl'] = 'http://13.125.213.141/account/signup/'
+    context['resultType'] = '4'
+
+    return render(request, 'signup.html', context)
 
 @login_required
 def lotte_logout(request):
