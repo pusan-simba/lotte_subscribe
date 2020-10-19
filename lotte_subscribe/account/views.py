@@ -49,7 +49,7 @@ def lotte_sign_up(request):
 def signup_page(request):
     print('request: ', request)
     try:
-        print('post: ', request['POST'])
+        print('post: ', request.POST)
     except:
         pass
     address_url = 'http://www.juso.go.kr/addrlink/addrLinkUrl.do'
