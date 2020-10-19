@@ -29,6 +29,14 @@ def lotte_login(request):
 
 @csrf_exempt
 def lotte_sign_up(request):
+    address_url = 'http://www.juso.go.kr/addrlink/addrLinkUrl.do'
+    key = settings.ADDRESS_API_KEY
+    context = dict()
+    context['address_url'] = address_url
+    context['key'] = key
+    context['returnUrl'] = 'http://13.125.213.141/account/signup/'
+    context['resultType'] = '4'
+    
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
