@@ -116,3 +116,6 @@ def my_likes(request):
 
 def address_api(request):
     response = request('http://www.juso.go.kr/addrlink/addrLinkUrl.do')
+
+def test(request):
+    return render(request, 'test.html')

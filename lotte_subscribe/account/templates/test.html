@@ -1,32 +1,87 @@
-{% extends 'base.html' %}
-
-{% block head %}
-    <title>회원가입</title>
-{% endblock head %}
-
-{% block content %}
-    <form action="{% url 'signup' %}" method="POST">
-        {% csrf_token %}
-        <label for="username">username</label><input type="text" name="username">
-        <label for="password">password</label><input type="text" name="password">
-        <label for="name">name</label><input type="text" name="name">
-        <label for="phone_number">핸드폰</label><input type="text" name="phone_number">
-        <div>
-            <label for="address">주소</label>
-            
-            <div><input type="text" name="address0"></div>
-            <div><input type="text" name="address1"></div>
-            <div><input type="text" name="address2"></div>
-        </div>
-        <input type="submit" value="회원가입">
-    </form>
-    <form action="{{ address_url }}" method="GET">
-        {% csrf_token %}
-        <input type="hidden" value="{{ key }}" name="confmKey">
-        <input type="hidden" value="{{ returnUrl }}" name="returnUrl">
-        <input type="hidden" value="{{ resultType }}" name="resultType">
-        <input type="submit" value="주소검색">
-        <fieldset class="lineG" id="roadResultMap">
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<form name="formRoadPop" id="formRoadPop" method="post">
+		<fieldset class="group">
+			<legend>팝업 API출력유형 선택하기</legend>
+			<table class="dataTable">
+				<caption>팝업 API출력유형 선택하기</caption>
+				<colgroup>
+					<col class="cols20">
+					<col class="colsAuto">
+					<col class="cols33">
+				</colgroup>
+				<thead><tr><th class="hiddenArea" scope="row">팝업 API출력유형 선택</th></tr></thead>
+				<tbody>
+					<tr>
+						<th scope="row">출력유형 선택(팝업)</th>
+						<td colspan="2">
+							<p class="item01 w320">
+								<input title="도로명주소 + 지번 + 상세건물명(기본)" type="radio" name="resultType" id="resultType1" value="4" checked="checked">
+								<label for="resultType1">도로명주소 + 지번 + 상세건물명(기본)</label>
+							</p>
+							<p class="item01 w300">
+								<input title="도로명주소 + 상세건물명" type="radio" name="resultType" id="resultType2" value="3">
+								<label for="resultType2">도로명주소 + 상세건물명</label>
+							</p>
+							<p class="item01 w320">
+								<input title="도로명주소 + 지번" type="radio" name="resultType" id="resultType3" value="2">
+								<label for="resultType3">도로명주소 + 지번</label>
+							</p>
+							<p class="item w300">
+								<input title="도로명주소" type="radio" name="resultType" id="resultType4" value="1">
+								<label for="resultType4">도로명주소</label>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">스킨유형 선택(팝업)</th>
+						<td class="noLine ">
+							<p class="item01 w300">
+								<input title="검색기본스킨" type="radio" name="resultSkin" id="resultSkin1" onclick="fnImageChanges(1);" value="1" checked="checked">
+								<label for="resultSkin1">검색기본스킨</label>
+							</p>
+							<p class="item01 w300">
+								<input title="회사로고 추가" type="radio" name="resultSkin" id="resultSkin2" onclick="fnImageChanges(2);" value="2">
+								<label for="resultSkin2">회사로고 추가</label>
+							</p>
+							<p class="item01 w300">
+								<input title="배경화면 변경" type="radio" name="resultSkin" id="resultSkin3" onclick="fnImageChanges(3);" value="3">
+								<label for="resultSkin3">배경화면 변경</label>
+							</p>
+							<p class="item01 w300">
+								<input title="테마색상 변경" type="radio" name="resultSkin" id="resultSkin4" onclick="fnImageChanges(4);" value="4">
+								<label for="resultSkin4">테마색상 변경</label>
+							</p>
+							<div class="item01">
+								<input title="사용자 승인키" type="radio" name="resultSkin" id="resultSkin5" onclick="fnImageChanges(5);" value="5">
+									<label for="resultSkin5">사용자 승인키</label>
+								<div class="item02">
+									<input type="text" id="resultSkinConfmKey" name="resultSkinConfmKey" title="사용자승인키입력란" class="w250" disabled="disabled">
+									<p class="itemText">사용하시는 CSS파일을 테스트하실 경우<span class="textRed"> 승인키를 입력</span>하여 주십시요.</p>
+								</div>
+							</div>
+						</td>
+						<td class="sampleImage">
+						   <img src="/juso_support_center/img_addrlink/new/resultImg08.png" id="sampleImage" alt="팝업 API 스킨변경 예시 화면 - 검색기본스킨">
+						   </td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<div class="button">
+				<div class="btnWrap">
+					<a href="javascript:goPopupApi();" title="팝업API 체험하기" class="functionBtn">체험하기</a>
+					<!-- <div class="btnGuide"><p class="btnTxt">선택하신 옵션이 반영된 팝업 API 샘플을 확인할 수 있습니다.</p></div> -->
+				</div>
+			</div>
+		</fieldset>
+		
+		<fieldset class="lineG" id="roadResultMap">
 			<legend>팝업 API 출력결과</legend>
 			<p class="title">출력결과</p>
 			<div class="resultWrap">
@@ -115,7 +170,6 @@
 				</table>
 			</div>
 		</fieldset>
-    </form>
-    <div>{{ message }}</div>
-    <div><a href="{% url 'test' %}">Test</a></div>
-{% endblock content %}
+		</form>
+</body>
+</html>
