@@ -6,7 +6,7 @@
 
 {% block content %}
     <form action="{% url 'signup' %}" method="POST">
-        {% csrf_token %}
+        
         <label for="username">username</label><input type="text" name="username">
         <label for="password">password</label><input type="text" name="password">
         <label for="name">name</label><input type="text" name="name">
@@ -21,7 +21,7 @@
         <input type="submit" value="회원가입">
     </form>
     <form action="{{ address_url }}" method="GET">
-        {% csrf_token %}
+        
         <input type="hidden" value="{{ key }}" name="confmKey">
         <input type="hidden" value="{{ returnUrl }}" name="returnUrl">
         <input type="hidden" value="{{ resultType }}" name="resultType">
