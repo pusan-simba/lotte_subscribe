@@ -47,11 +47,6 @@ def lotte_sign_up(request):
 
 @csrf_exempt
 def signup_page(request):
-    print('request: ', request)
-    try:
-        print('post: ', request.POST)
-    except:
-        pass
     address_url = 'http://www.juso.go.kr/addrlink/addrLinkUrl.do'
     key = settings.ADDRESS_API_KEY
     context = dict()
@@ -60,6 +55,10 @@ def signup_page(request):
     context['returnUrl'] = 'http://13.125.213.141/account/signup/'
     context['resultType'] = '4'
 
+    if request.method == 'POST':
+        address = request.POST
+        context['address'] = address
+    
     return render(request, 'signup.html', context)
 
 @login_required

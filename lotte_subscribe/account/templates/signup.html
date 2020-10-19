@@ -14,9 +14,7 @@
         <div>
             <label for="address">주소</label>
             
-            <div><input type="text" name="address0"></div>
-            <div><input type="text" name="address1"></div>
-            <div><input type="text" name="address2"></div>
+            <div><input type="text" name="address" value="{{ addresss.roadFullAddr }}"></div>
         </div>
         <input type="submit" value="회원가입">
     </form>
@@ -26,96 +24,6 @@
         <input type="hidden" value="{{ returnUrl }}" name="returnUrl">
         <input type="hidden" value="{{ resultType }}" name="resultType">
         <input type="submit" value="주소검색">
-        
-        <fieldset class="lineG" id="roadResultMap">
-			<legend>팝업 API 출력결과</legend>
-			<p class="title">출력결과</p>
-			<div class="resultWrap">
-				<table class="dataResult">
-					<caption>팝업 API출력결과</caption>
-					<colgroup>
-						<col class="cols18">
-						<col class="cols30">
-						<col class="colsAuto">
-						<col class="cols30">
-					</colgroup>
-					<thead><tr><th class="hiddenArea" scope="row">팝업 API출력결과</th></tr></thead>
-					<tbody>
-						<tr>
-							<td><span class="headIcon">도로명주소 전체</span></td>
-							<td><input title="도로명주소 전체" type="text" id="roadFullAddr" name="roadFullAddr" class="w200" value="{{ roadFullAddr }}"></td>
-							<td><span class="headIcon">건물명</span></td>
-							<td><input title="건물명" type="text" id="bdNm" name="bdNm" class="w150"></td>
-						</tr>
-						<tr>
-							<td><span class="headIcon">도로명주소</span></td>
-							<td><input title="도로명주소" type="text" id="roadAddrPart1" name="roadAddrPart1" class="w200"></td>
-							<td><span class="headIcon">공동주택여부</span></td>
-							<td><input title="공동주택여부" type="text" id="bdKdcd" name="bdKdcd" class="w150"></td>
-						</tr>
-						<tr>
-							<td><span class="headIcon">고객입력 상세주소</span></td>
-							<td><input title="고객입력 상세주소" type="text" id="addrDetail" name="addrDetail" class="w150"></td>
-							<td><span class="headIcon">시도명</span></td>
-							<td><input title="시도명" type="text" id="siNm" name="siNm" class="w150"></td>
-						</tr>
-						<tr>
-							<td><span class="headIcon">참고주소</span></td>
-							<td><input title="참고주소" type="text" id="roadAddrPart2" name="roadAddrPart2" class="w150"></td>
-							<td><span class="headIcon">시군구명</span></td>
-							<td><input title="시군구명" type="text" id="sggNm" name="sggNm" class="w150"></td>
-						</tr>
-						<tr>
-							<td><span class="headIcon">영문 도로명주소</span></td>
-							<td><input title="영문 도로명주소" type="text" id="engAddr" name="engAddr" class="w200"></td>
-							<td><span class="headIcon">읍면동명</span></td>
-							<td><input title="읍면동명" type="text" id="emdNm" name="emdNm" class="w150"></td>
-						</tr>
-						<tr>
-							<td><span class="headIcon">지번 주소</span></td>
-							<td><input title="지번 주소" type="text" id="jibunAddr" name="jibunAddr" class="w200"></td>
-							<td><span class="headIcon">법정리명</span></td>
-							<td><input title="법정리명" type="text" id="liNm" name="liNm" class="w150"></td>
-						</tr>
-						<tr>
-							<td><span class="headIcon">우편번호</span></td>
-							<td><input title="우편번호" type="text" id="zipNo" name="zipNo" class="w45"></td>
-							<td><span class="headIcon">도로명</span></td>
-							<td><input title="도로명" type="text" id="rn" name="rn" class="w150"></td>
-						</tr>
-						<tr>
-							<td><span class="headIcon">행정구역코드</span></td>
-							<td><input title="행정구역코드" type="text" id="admCd" name="admCd" class="w120"></td>
-							<td><span class="headIcon">지하여부</span></td>
-							<td><input title="지하여부" type="text" id="udrtYn" name="udrtYn" class="w45"></td>
-						</tr>
-						<tr>
-							<td><span class="headIcon">도로명코드</span></td>
-							<td><input title="도로명코드" type="text" id="rnMgtSn" name="rnMgtSn" class="w120"></td>
-							<td><span class="headIcon">건물본번 - 건물부번</span></td>
-							<td><input title="건물본번" type="text" id="buldMnnm" name="buldMnnm" class="w45"> - <input title="건물부번" type="text" id="buldSlno" name="buldSlno" class="w45"></td>
-						</tr>
-						<tr>
-							<td><span class="headIcon">건물관리번호</span></td>
-							<td><input title="건물관리번호" type="text" id="bdMgtSn" name="bdMgtSn" class="w200"></td>
-							<td><span class="headIcon">산여부</span></td>
-							<td><input title="산여부" type="text" id="mtYn" name="mtYn" class="w45"></td>
-						</tr>
-						<tr>
-							<td><span class="headIcon">상세건물명</span></td>
-							<td><input title="상세건물명" type="text" id="detBdNmList" name="detBdNmList" class="w200"></td>
-							<td><span class="headIcon">지번본번(번지) - 지번부번(호)</span></td>
-							<td><input title="지번본번(번지)" type="text" id="lnbrMnnm" name="lnbrMnnm" class="w45"> - <input title="지번부번(호)" type="text" id="lnbrSlno" name="lnbrSlno" class="w45"></td>
-						</tr>
-						<tr>
-							<td><span class="headIcon">읍면동일련번호</span></td>
-							<td><input title="읍면동일련번호" type="text" id="emdNo" name="emdNo" class="w130"></td>
-							<td></td><td></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</fieldset>
     </form>
     <div>{{ message }}</div>
     <div><a href="{% url 'test' %}">Test</a></div>
