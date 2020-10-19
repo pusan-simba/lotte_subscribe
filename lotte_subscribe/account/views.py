@@ -51,8 +51,9 @@ def lotte_sign_up(request):
             return redirect('home')
         except:
             message = '존재하는 아이디입니다.'
-            return render(request, 'signup.html', {'message':message})
-            
+            context['message'] = message
+            return render(request, 'signup.html', context)
+
     return render(request, 'signup.html', context)
 
 @csrf_exempt
@@ -134,6 +135,3 @@ def my_likes(request):
 
 def address_api(request):
     response = request('http://www.juso.go.kr/addrlink/addrLinkUrl.do')
-
-def test(request):
-    return render(request, 'test.html')
