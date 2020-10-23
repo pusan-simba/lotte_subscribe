@@ -1,25 +1,40 @@
 {% extends 'base.html' %}
 {% block head %}
-    <title>home</title>
+<title>home</title>
 {% endblock head %}
 
 {% block content %}
-    {% if user.is_authenticated %}
-        <div><a href="{% url 'logout' %}">로그아웃</a></div>
-    {% else %}
-        <div><a href="{% url 'login' %}">로그인</a></div>
-        <div><a href="{% url 'signup' %}">회원가입</a></div>
-    {% endif %}
 
-    {% for notice in notices %}
+<div class="carousel-container">
+    <div class="carousel-slide">
+
+        <img src="../static/KakaoTalk_20201010_172316264.png" id="lastClone">
+        <img src="../static/KakaoTalk_20201010_172318116.png">
+        <img src="../static/KakaoTalk_20201010_172316264.png">
+        <img src="../static/KakaoTalk_20201010_172318116.png" id="firstClone">
+    </div>
+    <div class="carousel-text">
+        공지사항 들어가는 자리
+        {% for notice in notices %}
         <div><a href="{% url 'notice' notice.id %}">{{ notice.title }}</a></div>
-        <div>{{ notice.content }}</div>
-        <div>{{ notice.date }}</div>
-        <div>{{ notice.image }}</div>
-    {% endfor %}
-    <br>
-    {% for category in categories %}
-        <div><a href="{% url 'category' category.id %}">{{ category.name }}</a></div>
-    {% endfor %}
-    <div><a href="{% url 'mypage' %}">마이페이지</a></div>
+        {% endfor %}
+    </div>
+    <div class="prev-btn">
+        <img src="../static/slider_arrow_L.png">
+    </div>
+    <div class="next-btn">
+        <img src="../static/slider_arrow_R.png">
+    </div>
+</div>
+<!-- {% for notice in notices %}
+<div><a href="{% url 'notice' notice.id %}">{{ notice.title }}</a></div>
+<div>{{ notice.content }}</div>
+<div>{{ notice.date }}</div>
+<div>{{ notice.image }}</div>
+{% endfor %}
+<br> -->
+<div class="introduce-img">
+    <img src="../static/introduce.png">
+</div>
+<script src="../static/js/carousel.js"></script>
 {% endblock content %}

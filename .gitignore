@@ -1,9 +1,9 @@
 venv_lotte/
+myvenv/
 *.sqlite3
 __pycache__/
 migrations/
 media/
-static/
 .DS_Store
 *.ipynb
 secrets.json
