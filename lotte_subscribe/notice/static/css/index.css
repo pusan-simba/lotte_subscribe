@@ -1,0 +1,391 @@
+html,body {
+    margin: 0;
+    padding: 0;
+}
+ a:link,a:visited,a:active,a:hover{
+     text-decoration: none;
+     color:black;
+ }
+
+.top {
+    position: relative;
+    top: 8px;
+    margin-bottom: 8px;
+    box-shadow: 5px 5px 5px rgb(248, 247, 247);
+
+}
+.account{
+    top: 30%;
+    right:5%;
+    display: inline-block;
+    position:absolute;
+
+}
+.login{
+    display:inline-block;
+}
+.logout{
+    display:inline-block;
+}
+.register{
+    display:inline-block;
+}
+.my-page{
+    display:inline-block;
+}
+.nav-icon{
+    left:3%;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top:2px;
+    
+}
+@media(min-width:475px){
+    .nav-icon{
+        display: none;
+    }
+    .top-logo>img{
+        height: 55px;
+    }
+    .top-logo>p{
+        position: absolute;
+        bottom: 10px;
+        
+    }
+}
+.nav-icon>img{
+    width:100%;
+    height:100%;
+    
+
+}
+.top-logo {
+    font-size: 50px;
+    font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+    color:red;
+    position:relative;
+    display: inline-block;
+    width: 70%;
+    left: 5%;
+
+}
+.top-logo>img{
+    height: 70px;
+    bottom: 0;
+    display:inline-block;
+}
+.top-logo>p{
+    margin:0;
+    padding:0;
+    display:inline-block;
+    position: absolute;
+    bottom:0;
+}
+
+
+.nav {
+    width: 15%;
+    position: sticky;
+    top: 0;
+    height: 90%;
+    display: inline-block;
+    box-shadow: 5px 5px 10px rgb(240, 240, 240);
+
+}
+@media(max-width:476px){
+    .nav{
+        width: 100vw;
+        height: 100vh;
+        background-color:black;
+        display: none;
+        top:0;
+        margin-top:0;
+        color:white;
+    }
+
+    li:hover{
+        border-bottom: solid white 3px;
+        position:relative;
+        width:70%;
+        margin: 0 auto;
+    }
+    .introduce-img{
+        position:relative;
+        top:50px;
+    }
+}
+
+
+.introduce-img>img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.decoration-img>img {
+    width: 100%;
+    height: 100%;
+}
+
+@media(min-width:1400px) {
+    .introduce-img {
+        position: absolute;
+        top: 15%;
+        left: 20%;
+        width: 600px;
+        height: 500px;
+
+    }
+
+    .decoration-img {
+        position: absolute;
+        bottom: 20%;
+        right: 0;
+        width: 500px;
+
+    }
+}
+
+@media(min-width:1024px) and (max-width:1400px) {
+    .introduce-img {
+        position: absolute;
+        top: 15%;
+        left: 20%;
+        width: 500px;
+        height: 500px;
+    }
+
+    .decoration-img {
+        position: absolute;
+        bottom: 20%;
+        right: 0;
+        width: 350px;
+    }
+}
+
+@media(min-width:875px) and (max-width:1024px) {
+    .introduce-img {
+        position: absolute;
+        top: 15%;
+        left: 20%;
+        width: 400px;
+        height: 500px;
+    }
+
+    .decoration-img {
+        position: absolute;
+        bottom: 20%;
+        right: 0;
+        width: 350px;
+        height: 350px;
+    }
+}
+
+@media(min-width:768px) and (max-width:875px) {
+    .introduce-img {
+        position: absolute;
+        top: 15%;
+        left: 20%;
+        width: 350px;
+        height: 500px;
+    }
+
+    .decoration-img {
+        position: absolute;
+        bottom: 20%;
+        right: 0;
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media(min-width:645px) and (max-width:768px) {
+    .introduce-img {
+        position: absolute;
+        top: 15%;
+        left: 20%;
+        width: 300px;
+        height: 500px;
+    }
+
+    .decoration-img {
+        position: absolute;
+        bottom: 20%;
+        right: 0;
+        width: 250px;
+        height: 300px;
+    }
+}
+
+@media(min-width: 476px) and (max-width:645px) {
+    .introduce-img {
+        position: absolute;
+        top: 15%;
+        left: 20%;
+        width: 200px;
+        height: 400px;
+    }
+
+    .decoration-img {
+        position: absolute;
+        bottom: 20%;
+        right: 0;
+        width: 200px;
+        height: 200px;
+    }
+}
+@media(max-width: 476px){
+    .top-logo{
+        font-size:20px;
+        position:relative;
+        left:20%;
+
+
+
+    }
+    .top-logo>img{
+        height:30px;
+    }
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    text-align: center;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+li>p {
+    display: table-cell;
+    vertical-align: middle;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+
+}
+@media(min-width:476px){
+li:hover {
+    background-color: black;
+    color: white;
+}
+}
+
+.search {
+    display: inline-block;
+    position: relative;
+    top: 15px;
+    left: 5%;
+    padding:10px;
+}
+.search>input {
+    border-top-style: hidden;
+    border-right-style:hidden;
+    border-left-style:hidden;
+}
+
+
+.footer{
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
+
+
+
+
+.carousel-container {
+    width: 30%;
+    position:absolute;
+    top:20%;
+    right: 5%;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 400px;
+
+
+}
+
+.carousel-slide {
+    display: flex;
+    width: 100%;
+    height: 200px;
+}
+
+.carousel-slide>img {
+    width: 100%;
+}
+
+
+.next-btn {
+    position: absolute;
+    right: 0;
+    top: 20%;
+    padding-right: 5px;
+    cursor: pointer
+}
+
+
+
+.prev-btn {
+    position: absolute;
+    left: 0;
+    top: 20%;
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+/*.item-container {
+    top: 50px;
+    width: 100%;
+    position: relative;
+
+}
+
+.items {
+    border: solid black;
+    display: inline-block;
+    width: 30%;
+    height: 200px;
+    margin: 5px;
+    padding: 0;
+
+}
+
+@media (max-width:425px) {
+    .items {
+        border: solid black;
+        display: block;
+        width: 80%;
+        position: relative;
+        left: 10%;
+        height: 150px;
+
+
+    }
+}
+
+@media (min-width:425px) and (max-width: 768px) {
+    .items {
+        border: solid black;
+        display: inline-block;
+        width: 40%;
+        height: 200px;
+        position: relative;
+        left: 5%;
+    }
+
+    */
