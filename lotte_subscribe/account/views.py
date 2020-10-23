@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 
 from .models import User
-from items.models import Item, Category
+from items.models import Item, Category, Mini_category
 
 import requests, os
 # Create your views here.
@@ -82,7 +82,9 @@ def my_page(request):
     context = dict()
 
     categories = Category.objects.all()
+    mini_categories = Mini_category.objects.all() 
     context['categories'] = categories
+    context['mini_categories'] = mini_categories
 
     return render(request, 'my_page.html', context)
 
