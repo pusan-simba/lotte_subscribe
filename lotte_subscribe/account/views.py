@@ -84,6 +84,7 @@ def my_page(request):
     context = dict()
     mini_categories = Mini_category.objects.all()
     categories = Category.objects.all()
+    mini_categories = Mini_category.objects.all() 
     context['categories'] = categories
     context['mini_categories'] = mini_categories
 

@@ -2,7 +2,9 @@ from django.http import request
 from django.shortcuts import render
 
 from .models import Notice
-from items.models import Category,Mini_category
+
+from items.models import Category, Mini_category
+
 
 # Create your views here.
 def home(request):
@@ -17,7 +19,7 @@ def home(request):
     context['categories'] = categories
     mini_categories = Mini_category.objects.all()
     context['mini_categories'] = mini_categories
-    
+
     return render(request, 'home.html', context)
 
 def notice_detail(request, notice_id):

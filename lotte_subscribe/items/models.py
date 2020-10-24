@@ -19,6 +19,7 @@ class Item(models.Model):
     image = models.ImageField(blank=True)
     category = models.ForeignKey(to=Category, on_delete=models.CASCADE)
     mini_category = models.ForeignKey(to=Mini_category,on_delete=models.CASCADE, null=True)
+
     def __str__(self):
         return self.name    
 
