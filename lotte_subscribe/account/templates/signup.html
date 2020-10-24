@@ -11,15 +11,15 @@
         <div class="txt">회원가입</div>
         <hr>
 
-        <div class="a"><label for="username">username</label><input type="text" name="username"></divc>
-            <div class="a"><label for="password">password</label><input type="text" name="password"></div>
-            <div class="a"><label for="name">name</label><input type="text" name="name"></div>
-            <div class="a"><label for="phone_number">핸드폰</label><input type="text" name="phone_number"></div>
-            <div class="a"><label for="address">주소</label><input type="text" name="address"
-                    value="{{ address.roadFullAddr }}">
-            </div>
+        <div class="a"><label for="username">username</label><input type="text" name="username"></div>
+        <div class="a"><label for="password">password</label><input type="text" name="password"></div>
+        <div class="a"><label for="name">name</label><input type="text" name="name"></div>
+        <div class="a"><label for="phone_number">핸드폰</label><input type="text" name="phone_number"></div>
+        <div class="a"><label for="address">주소</label><input type="text" name="address"
+                value="{{ address.roadFullAddr }}">
+        </div>
 
-            <input type="submit" value="회원가입">
+        <input type="submit" value="회원가입">
     </form>
     <form action="{{ address_url }}" method="POST">
         <input type="hidden" value="{{ key }}" name="confmKey">
