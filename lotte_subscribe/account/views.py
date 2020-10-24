@@ -65,7 +65,9 @@ def signup_page(request):
     context['key'] = key
     context['returnUrl'] = 'http://13.125.213.141/account/signup/'
     context['resultType'] = '4'
-
+    categories = Category.objects.all()
+    context['categories'] = categories
+    
     if request.method == 'POST':
         address = request.POST
         context['address'] = address
