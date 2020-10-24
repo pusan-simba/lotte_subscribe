@@ -93,21 +93,8 @@ def my_subscribes(request):
     user = request.user
     items = user.subscribes.all()
     context['items'] = items
-
-    try:
-        check = user.likes.all().get(id=item_id)
-        is_liked = True
-    except:
-        is_liked = False
-    context['is_liked'] = is_liked
-    try:
-        check = user.subscribes.all().get(id=item_id)
-        is_subscribed = True
-    except:
-        is_subscribed = False
-    context['is_subscribed'] = is_subscribed
     
-    return render(request, 'category.html', context)
+    return render(request, 'my_subscribes.html', context)
 
 @login_required
 def my_likes(request):
@@ -130,7 +117,7 @@ def my_likes(request):
         is_subscribed = False
     context['is_subscribed'] = is_subscribed
 
-    return render(request, 'category.html', context)
+    return render(request, 'my_likes.html', context)
 
 
 def address_api(request):
