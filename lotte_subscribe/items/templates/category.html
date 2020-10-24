@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block head %}
     <title>카테고리</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/items.css' %}">
 {% endblock head %}
 
 {% block content %}
     {% for item in items %}
         <div><a href="{% url 'item' item.id %}">{{ item.name }}</a></div>
         <div>{{ item.explain }}</div>
-        <div>{{ item.category }}</div>
+        <div>{{ item.image }}</div>
     {% endfor %}
     <br>
-    <!-- {% for category in categories %}
-        <div><a href="{% url 'category' category.id %}">{{ category.name }}</a></div>
-    {% endfor %}
-    <div><a href="{% url 'mypage' %}">마이페이지</a></div> -->
+ 
 {% endblock content %}
