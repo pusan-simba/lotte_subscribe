@@ -97,6 +97,7 @@ def my_subscribes(request):
     user = request.user
     items = user.subscribes.all()
     context['items'] = items
+    
   
     return render(request, 'my_subscribes.html', context)
 
