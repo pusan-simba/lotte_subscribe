@@ -1,28 +1,47 @@
 {% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block head %}
-    <title>마이 구독쓰</title>
-{% endblock head%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+    <title>구독중인 서비스</title>
+    {% endblock head%}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/my_subscribes.css' %}">
+</head>
 
-{% block content %}
-    {% if is_liked %}
-        <div><a href="{% url 'like_toggle' item.id %}">안좋아요</a></div>
-    {% else %}
-        <div><a href="{% url 'like_toggle' item.id %}">좋아요</a></div>
-    {% endif %}
-
-    {% if is_subscribed %}
-        <div><a href="{% url 'subscribe_toggle' item.id %}">안구독</a></div>
-    {% else %}
-        <div><a href="{% url 'subscribe_toggle' item.id %}">구독</a></div>
-    {% endif %}
-
+<body>
+    {% block content %}
+    내 구독 관리
+    <hr>
+    {% for item in items %}
     <div>{{ item.name }}</div>
     <div>{{ item.explain }}</div>
     <div>{{ item.category }}</div>
+
+    {% if item in user.likes.all %}
+    <div>unlike</div>
+    {% else %}
+    <div>like</div>
+    {% endif%}
+    {% if item in user.subscribes.all %}
+    <div>unsub</div>
+    {% else %}
+    <div>sub</div>
+    {% endif%}
     <br>
-    {% for category in categories %}
-        <div><a href="{% url 'category' category.id %}">{{ category.name }}</a></div>
     {% endfor %}
-    <div><a href="{% url 'mypage' %}">마이페이지</a></div>
-{% endblock content %}
+    {% for category in categories %}
+    <div>
+        <a href="{% url 'category' category.id %}">{{ category.name }}</a>
+    </div>
+    {% endfor %}
+    <div>
+        <a href="{% url 'mypage' %}">마이페이지</a>
+    </div>
+    {% endblock content %}
+</body>
+
+</html>
