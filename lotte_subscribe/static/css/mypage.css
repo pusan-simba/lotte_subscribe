@@ -1,0 +1,41 @@
+.mypage_container{
+    position: absolute;
+    width: 80%;
+    height: 40%;
+    left: 20%;
+    top: 15%;
+}
+#like_list{
+    display: inline-block;
+    box-shadow: 10px 10px 10px rgb(202, 199, 199);
+    border-radius: 20px;
+    width: 25%;
+    height: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+#account_care{
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    
+    box-shadow: 10px 10px 10px rgb(202, 199, 199);
+    text-align: center;
+    border-radius: 20px;
+    margin-right: 2%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#like_setting{
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    box-shadow: 10px 10px 10px rgb(202, 199, 199);
+    text-align: center;
+    border-radius: 20px;
+    margin-right: 2%;
+    font-size: 20px;
+    font-weight: bold;
+}
