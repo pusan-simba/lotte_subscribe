@@ -1,6 +1,12 @@
 from django.db import models
 
 # Create your models here.
+class Mini_category(models.Model):
+    name = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.name
+
 class Category(models.Model):
     name = models.CharField(max_length=20)
 
@@ -12,6 +18,7 @@ class Item(models.Model):
     explain = models.TextField()
     image = models.ImageField(blank=True)
     category = models.ForeignKey(to=Category, on_delete=models.CASCADE)
+    mini_category = models.ForeignKey(to=Mini_category,on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.name    

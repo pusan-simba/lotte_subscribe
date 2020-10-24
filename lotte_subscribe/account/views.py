@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 
 from .models import User
-from items.models import Item, Category
+from items.models import Item, Category, Mini_category
 
 import requests, os
 # Create your views here.
@@ -65,6 +65,8 @@ def signup_page(request):
     context['key'] = key
     context['returnUrl'] = 'http://13.125.213.141/account/signup/'
     context['resultType'] = '4'
+    categories = Category.objects.all()
+    context['categories'] = categories
 
     if request.method == 'POST':
         address = request.POST
@@ -80,9 +82,11 @@ def lotte_logout(request):
 @login_required
 def my_page(request):
     context = dict()
-
+    mini_categories = Mini_category.objects.all()
     categories = Category.objects.all()
+    mini_categories = Mini_category.objects.all() 
     context['categories'] = categories
+    context['mini_categories'] = mini_categories
 
     return render(request, 'my_page.html', context)
 

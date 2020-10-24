@@ -1,14 +1,122 @@
+{% load static %}
 <html lang="ko">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     {% block head %}{% endblock head %}
 </head>
+
 <body>
-    <form action="{% url 'search' %}" method="GET">
-        <label for="query">검색</label><input type="text" name="query">
-    </form>
-    <div><a href="{% url 'home' %}">홈 버튼</a></div>
-    {% block content %}{% endblock content %}
+
+    <div class="container">
+        <div class="top">
+            <div class="nav-icon">
+                <img src="{% static "menuicon.png" %}">
+            </div>
+            <div class="top-logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static "lotte_img.png" %}">
+                </a>
+                <p>LOTTE DAMOUM</p>
+            </div>
+            <div class="account">
+
+                {% if user.is_authenticated %}
+                <div class="logout"><a href="{% url 'logout' %}">로그아웃</a></div>
+                <div class="my-page"><a href="{% url 'mypage' %}"><img src="{% static "mypage.png" %}"
+                            style="width:100%; height:100%;"></a></div>
+                {% else %}
+                <div class="login" id="modal_btn"> 로그인/회원가입</div>
+                <div class="black_bg"></div>
+                <div class="modal_wrap">
+                    <div class="modal_close"><a href="#">close</a></div>
+                    <div class="modal-content">
+                        <br>
+                        <p>로그인</p><br><br>
+                        <form action="{% url 'login' %}" method="POST">
+                            {% csrf_token %}
+                            <label style="margin-right:20px" for="username">&nbsp&nbsp&nbsp아이디</label><input
+                                style="border-radius: 8px; width: 35%; border: solid 0.5px rgb(189, 186, 186); margin-right: 40px;"
+                                type="text" name="username"><br><br><br>
+                            <label style="margin-right:20px" for="password">비밀번호</label><input
+                                style="border-radius:8px; width: 35%; border: solid 0.5px rgb(189, 186, 186); margin-right: 40px;"
+                                type="text" name="password"><br><br><br><br>
+                            <button type="submit" class="login-confirm">확인</button>
+                        </form>
+                        <div><a href="{% url 'signup' %}" style="color: #dd5954;">회원가입</a></div>
+                        <div><a href="" style="color: #dd5954;">아이디/비밀번호 찾기</a></div>
+                        <div>{{ message }}</div>
+                    </div>
+                </div>
+                <!-- <div class='login'><a href="{% url 'login' %}">로그인</a></div> -->
+                <!-- <div class="register"><a href="{% url 'signup' %}">회원가입</a></div> -->
+                {% endif %}
+            </div>
+        </div>
+        {% block content %}{% endblock content %}
+
+
+        <div class="nav">
+            <ul>
+                <div class="search">
+                    <form action="{% url 'search' %}" method="GET">
+                        <label for="query"><img
+                                style="width: 16px; height: 16px; position: relative; bottom: 0;object-fit:cover;"
+                                src="{% static "search_img.png" %}"></label>
+                        <input type="text" id="query" value="검색">
+                    </form>
+                </div>
+                {% for i in categories %}
+                <a href="{% url 'category' i.id %}">
+                    <li>
+                        <p>{{i}}</p>
+                    </li>
+                </a>
+                {% endfor %}
+            </ul>
+        </div>
+
+
+
+        <div class="footer">
+            copyright by 부산 멋쟁이사자처럼
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+
+        nav = document.querySelector('.nav');
+        const navIcon = document.querySelector(".nav-icon");
+
+
+
+        navIcon.addEventListener('click', () => {
+            if (nav.style.display == "none") {
+                openNav();
+            }
+            else {
+                closeNav();
+            }
+        });
+        function openNav() {
+            nav.style.display = "inline-block";
+            navIcon.innerHTML = "X";
+        }
+        function closeNav() {
+            nav.style.display = 'none';
+            navIcon.innerHTML = '<img src="static/menuicon.png">';
+        };
+
+    </script>
+    <script src="{% static "js/login.js" %}"></script>
 </body>
+
 </html>
