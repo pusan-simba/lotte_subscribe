@@ -5,21 +5,19 @@
 {% endblock head%}
 
 {% block content %}
-    {% if is_liked %}
-        <div><a href="{% url 'like_toggle' item.id %}">안좋아요</a></div>
-    {% else %}
-        <div><a href="{% url 'like_toggle' item.id %}">좋아요</a></div>
-    {% endif %}
-
-    {% if is_subscribed %}
-        <div><a href="{% url 'subscribe_toggle' item.id %}">안구독</a></div>
-    {% else %}
-        <div><a href="{% url 'subscribe_toggle' item.id %}">구독</a></div>
-    {% endif %}
-
-    <div>{{ item.name }}</div>
-    <div>{{ item.explain }}</div>
-    <div>{{ item.category }}</div>
+    {% for item in items %}
+        {% if item in user.likes.all %}
+            <div>unlike</div>
+        {% else %}
+            <div>like</div>
+        {% endif %}
+        {% if item in user.subscribes.all %}
+            <div>unsub</div>
+        {% else %}
+            <div>sub</div>
+        {% endif %}
+        <div>{{ item }}</div>
+    {% endfor %}
     <br>
     {% for category in categories %}
         <div><a href="{% url 'category' category.id %}">{{ category.name }}</a></div>

@@ -34,7 +34,7 @@ def lotte_sign_up(request):
     context = dict()
     context['address_url'] = address_url
     context['key'] = key
-    context['returnUrl'] = 'http://13.125.213.141/account/signup/'
+    context['returnUrl'] = 'http://13.125.213.141/' + request.path
     context['resultType'] = '4'
     
     if request.method == 'POST':
@@ -63,7 +63,7 @@ def signup_page(request):
     context = dict()
     context['address_url'] = address_url
     context['key'] = key
-    context['returnUrl'] = 'http://13.125.213.141/account/signup/'
+    context['returnUrl'] = 'http://13.125.213.141/' + request.path
     context['resultType'] = '4'
     categories = Category.objects.all()
     context['categories'] = categories
@@ -107,19 +107,6 @@ def my_likes(request):
     user = request.user
     items = user.likes.all()
     context['items'] = items
-
-    try:
-        check = user.likes.all().get(id=item_id)
-        is_liked = True
-    except:
-        is_liked = False
-    context['is_liked'] = is_liked
-    try:
-        check = user.subscribes.all().get(id=item_id)
-        is_subscribed = True
-    except:
-        is_subscribed = False
-    context['is_subscribed'] = is_subscribed
 
     return render(request, 'my_likes.html', context)
 
