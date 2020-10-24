@@ -1,11 +1,32 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block head %}
-    <title>마이 페이지</title>
+<title>마이 페이지</title>
+<link rel="stylesheet" href="{% static 'css/mypage.css' %}">
 {% endblock head %}
 
-{% block content %} 
-    <div><a href="">내 정보 수정</a></div>
-    <div><a href="{% url 'mysub' %}">내 구독 관리</a></div>
-    <div><a href="{% url 'mylike' %}">구독 찜 리스트</a></div>
+{% block content %}
+<div class="mypage_container">
+    <p style="font-size: 30px;">마이 페이지</p>
+    <hr style="margin-bottom: 5%; height: 3px; border: 0; background-color: black; width:80%; margin-left:0;">
+    <a href="">
+        <div id="account_care"><img src="{% static '내 정보 수정.png' %}" style="margin-top: 15%;">
+            <p>내 정보 수정</p>
+        </div>
+    </a>
+
+    <a href="{% url 'mysub' %}">
+        <div id="like_setting">
+            <img src="{% static '내 구독 관리.png' %}" style="margin-top: 15%;">
+            <p>내 구독 관리</p>
+        </div>
+    </a>
+    <a href="{% url 'mylike' %}">
+        <div id="like_list">
+            <img src="{% static '구독 찜 리스트.png' %}" style="margin-top: 15%;">
+            <p>구독 찜 리스트</p>
+        </div>
+    </a>
+
+</div>
 {% endblock content %}

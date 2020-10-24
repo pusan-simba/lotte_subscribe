@@ -5,11 +5,13 @@
 
 {% block content %}
     {% for item in items %}
-        <div><a href="{% url 'item' item.id %}">{{ item.name }}</a></div>
-        <div>{{ item.explain }}</div>
-        <div>{{ item.category }}</div>
+        <div><a href="{% url 'item' item.id %}">{{ item.name }}</a>
+            <div>{{ item.explain }}</div>
+            <div>{{ item.category }}</div>
+            <img src="
+        </div>
+        
     {% endfor %}
-    <br>
     <!-- {% for category in categories %}
         <div><a href="{% url 'category' category.id %}">{{ category.name }}</a></div>
     {% endfor %}

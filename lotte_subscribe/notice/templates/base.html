@@ -26,9 +26,19 @@
             <div class="account">
 
                 {% if user.is_authenticated %}
-                <div class="logout"><a href="{% url 'logout' %}">로그아웃</a></div>
+
                 <div class="my-page"><a href="{% url 'mypage' %}"><img src="{% static "mypage.png" %}"
-                            style="width:100%; height:100%;"></a></div>
+                            style="width:40px; height:40px;">
+                        <p
+                            style="display: inline-block; font-size: 20px; font-weight: bold; position: relative; bottom: 25%;">
+                            마이페이지</p>
+                    </a></div>
+                <div class="logout"><a href="{% url 'logout' %}"><img src="{% static "로그아웃.png" %}"
+                            style="width:40px; height: 40px;">
+                        <p
+                            style="display: inline-block; font-size: 20px; font-weight: bold; position: relative; bottom:25%">
+                            로그아웃</p>
+                    </a></div>
                 {% else %}
                 <div class="login" id="modal_btn"> 로그인/회원가입</div>
                 <div class="black_bg"></div>

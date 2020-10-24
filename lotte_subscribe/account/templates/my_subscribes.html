@@ -20,7 +20,6 @@
     <div>{{ item.name }}</div>
     <div>{{ item.explain }}</div>
     <div>{{ item.category }}</div>
-    <br>
     {% for category in categories %}
         <div><a href="{% url 'category' category.id %}">{{ category.name }}</a></div>
     {% endfor %}
