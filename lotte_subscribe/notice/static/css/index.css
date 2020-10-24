@@ -8,21 +8,21 @@ html,body {
  }
 
 .top {
-    position: relative;
+    /* position: relative; */
     top: 8px;
     margin-bottom: 8px;
     box-shadow: 5px 5px 5px rgb(248, 247, 247);
 
 }
 .account{
-    top: 30%;
-    right:5%;
+    float: right;
     display: inline-block;
-    position:absolute;
+    /* position:absolute; */
 
 }
 .login{
     display:inline-block;
+    cursor: pointer;
 }
 .logout{
     display:inline-block;
@@ -32,6 +32,8 @@ html,body {
 }
 .my-page{
     display:inline-block;
+    width: 40px;
+    height:40px;
 }
 .nav-icon{
     left:3%;
@@ -315,6 +317,7 @@ li:hover {
     overflow: hidden;
     border-radius: 8px;
     height: 400px;
+    box-shadow: 5px 5px 10px grey;
 
 
 }
@@ -389,3 +392,55 @@ li:hover {
     }
 
     */
+
+    .modal_wrap{
+        display: none;
+        width: 30%;
+        height: 60%;
+        position: absolute;
+        top:50%;
+        left: 50%;
+        margin: -250px 0 0 -250px;
+        background: white;
+        border-radius: 30px;
+        z-index: 2;
+        text-align: center;
+    }
+    .black_bg{
+        display: none;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color:rgba(72, 72, 71, 0.5);
+        top:0;
+        left: 0;
+        z-index: 1;
+    }
+    .modal_close{
+        width: 26px;
+        height: 26px;
+        position: absolute;
+        top: -30px;
+        right: 0;
+    }
+
+    .modal-content{
+        position: relative;
+        
+    }
+    
+    .modal-content>p{
+        font-size: 20px;
+    }
+
+    .login-confirm{
+        background-color: #dd5954;
+        width: 20%;
+        height: 40px;
+        font-size: 15px;
+        border-radius: 8px;
+        border: none;
+        color:white;
+        box-shadow: 3px 3px 5px rgb(211, 208, 208);
+    }
