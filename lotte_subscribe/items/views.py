@@ -11,6 +11,8 @@ from account.models import User
 def hello_simba(request):
     return render(request, 'simba.html')
 
+
+
 def get_category(request, category_id):
     context = {}
 
