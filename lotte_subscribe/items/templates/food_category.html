@@ -6,7 +6,7 @@
 {% endblock head %}
 {% block content %}
     {% for mini_category in mini_categories %}
-        <div><a href="{% url 'get_mini_category' mini_category.id %}"> {{mini_category }}</a></div>
+        <div><a href="{% url 'get_mini_category' mini_category.id %}"> {{mini_category}}</a></div>
     {% endfor %}
 
     
@@ -14,8 +14,23 @@
     {% for item in items %}
         <div>{{ item.name }}</a></div>
         <div>{{ item.explain }}</div>
-        
-        <img src="{{ item.image.url }}">
+        <div><img src="{{ item.image.url }}"></div>
+        {% if user.is_authenticated %}
+            <a href="{% url 'like_toggle' item.id %}">
+            {% if item in user.likes.all %}
+            <img src="{% static '꽉찬 하트.png' %}">
+            {% else %}
+            <img src="{% static '빈 하트.png' %}">
+            {% endif%}
+            </a>
+            <a href="{% url 'subscribe_toggle' item.id %}">
+        {% if item in user.subscribes.all %}
+        <div class="unsub">구독 취소</div>
+        {% else %}
+        <div class="sub">구독 하기</div>
+        {% endif%}
+    </a>
+        {% endif%}
        
     {% endfor %}
     <br>
