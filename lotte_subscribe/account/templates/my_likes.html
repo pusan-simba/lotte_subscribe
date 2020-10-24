@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+    <title>관심있는 구독</title>
+    {% endblock head%}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/my_likes.css' %}">
+</head>
+
+<body>
+    {% block content %}
+    {% if is_liked %}
+    <div class="a">
+        <div>
+            <a href="{% url 'like_toggle' item.id %}">싫어임마</a>
+        </div>
+        {% else %}
+        <div>
+            <a href="{% url 'like_toggle' item.id %}">좋아한다</a>
+        </div>
+        {% endif %}
+    </div>
+
+
+    <div>{{ item.name }}</div>
+    <div>{{ item.explain }}</div>
+    <div>{{ item.category }}</div>
+    <br>
+    {% for category in categories %}
+    <div>
+        <a href="{% url 'category' category.id %}">{{ category.name }}</a>
+    </div>
+    {% endfor %}
+    <div>
+        <a href="{% url 'mypage' %}">마이페이지</a>
+    </div>
+    {% endblock content %}
+</body>
+
+</html>

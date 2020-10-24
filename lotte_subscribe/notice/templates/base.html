@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     {% block head %}{% endblock head %}
 </head>
@@ -15,20 +15,30 @@
     <div class="container">
         <div class="top">
             <div class="nav-icon">
-                <img src="{% static "menuicon.png" %}">
+                <img src="{% static 'menuicon.png' %}">
             </div>
             <div class="top-logo">
                 <a href="{% url 'home' %}">
-                    <img src="{% static "lotte_img.png" %}">
+                    <img src="{% static 'lotte_img.png' %}">
                 </a>
                 <p>LOTTE DAMOUM</p>
             </div>
             <div class="account">
 
                 {% if user.is_authenticated %}
-                <div class="logout"><a href="{% url 'logout' %}">로그아웃</a></div>
+
                 <div class="my-page"><a href="{% url 'mypage' %}"><img src="{% static "mypage.png" %}"
-                            style="width:100%; height:100%;"></a></div>
+                            style="width:40px; height:40px;">
+                        <p
+                            style="display: inline-block; font-size: 20px; font-weight: bold; position: relative; bottom: 25%;">
+                            마이페이지</p>
+                    </a></div>
+                <div class="logout"><a href="{% url 'logout' %}"><img src="{% static "로그아웃.png" %}"
+                            style="width:40px; height: 40px;">
+                        <p
+                            style="display: inline-block; font-size: 20px; font-weight: bold; position: relative; bottom:25%">
+                            로그아웃</p>
+                    </a></div>
                 {% else %}
                 <div class="login" id="modal_btn"> 로그인/회원가입</div>
                 <div class="black_bg"></div>
@@ -57,9 +67,12 @@
                 {% endif %}
             </div>
         </div>
+<<<<<<< HEAD
         <div><a href="{% url 'mypage' %}">마이페이지</a></div>
+=======
+      
+>>>>>>> a9eb82a59a1103fefacf64e6e263aef27b5a84e3
         {% block content %}{% endblock content %}
-
 
         <div class="nav">
             <ul>
@@ -67,7 +80,7 @@
                     <form action="{% url 'search' %}" method="GET">
                         <label for="query"><img
                                 style="width: 16px; height: 16px; position: relative; bottom: 0;object-fit:cover;"
-                                src="{% static "search_img.png" %}"></label>
+                                src="{% static 'search_img.png' %}"></label>
                         <input type="text" id="query" value="검색">
                     </form>
                 </div>
@@ -80,6 +93,8 @@
                 {% endfor %}
             </ul>
         </div>
+
+        
 
 
 
@@ -117,7 +132,7 @@
         };
 
     </script>
-    <script src="{% static "js/login.js" %}"></script>
+    <script src="{% static 'js/login.js' %}"></script>
 </body>
 
 </html>

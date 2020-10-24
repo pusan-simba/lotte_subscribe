@@ -97,8 +97,9 @@ def my_subscribes(request):
     user = request.user
     items = user.subscribes.all()
     context['items'] = items
-    
+  
     return render(request, 'my_subscribes.html', context)
+
 
 @login_required
 def my_likes(request):
@@ -107,9 +108,8 @@ def my_likes(request):
     user = request.user
     items = user.likes.all()
     context['items'] = items
-
+  
     return render(request, 'my_likes.html', context)
-
 
 def address_api(request):
     response = request('http://www.juso.go.kr/addrlink/addrLinkUrl.do')
