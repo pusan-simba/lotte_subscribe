@@ -3,26 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<<<<<<< HEAD
-{% block head %}
-    <title>마이 구독쓰</title>
-{% endblock head%}
-
-{% block content %}
-    {% for item in items %}
-        {% if item in user.likes.all %}
-            <div>unlike</div>
-        {% else %}
-            <div>like</div>
-        {% endif %}
-        {% if item in user.subscribes.all %}
-            <div>unsub</div>
-        {% else %}
-            <div>sub</div>
-        {% endif %}
-        <div>{{ item }}</div>
-    {% endfor %}
-=======
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,7 +31,6 @@
     {% else %}
     <div>sub</div>
     {% endif%}
->>>>>>> a9eb82a59a1103fefacf64e6e263aef27b5a84e3
     <br>
     {% endfor %}
     {% for category in categories %}
