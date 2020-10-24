@@ -7,32 +7,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block head %}
-    <title>구독중인 서비스</title>
+    <title>관심있는 구독</title>
     {% endblock head%}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/my_subscribes.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/my_likes.css' %}">
 </head>
 
 <body>
     {% block content %}
-    내 구독 관리
-    <hr>
-    {% for item in items %}
+    {% if is_liked %}
+    <div class="a">
+        <div>
+            <a href="{% url 'like_toggle' item.id %}">싫어임마</a>
+        </div>
+        {% else %}
+        <div>
+            <a href="{% url 'like_toggle' item.id %}">좋아한다</a>
+        </div>
+        {% endif %}
+    </div>
+
+
     <div>{{ item.name }}</div>
     <div>{{ item.explain }}</div>
     <div>{{ item.category }}</div>
-
-    {% if item in user.likes.all %}
-    <div>unlike</div>
-    {% else %}
-    <div>like</div>
-    {% endif%}
-    {% if item in user.subscribes.all %}
-    <div>unsub</div>
-    {% else %}
-    <div>sub</div>
-    {% endif%}
     <br>
-    {% endfor %}
     {% for category in categories %}
     <div>
         <a href="{% url 'category' category.id %}">{{ category.name }}</a>

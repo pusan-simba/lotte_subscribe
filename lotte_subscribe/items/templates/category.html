@@ -1,19 +1,16 @@
 {% extends 'base.html' %}
 {% block head %}
-    <title>카테고리</title>
+<title>카테고리</title>
 {% endblock head %}
 
 {% block content %}
-    {% for item in items %}
-        <div><a href="{% url 'item' item.id %}">{{ item.name }}</a>
-            <div>{{ item.explain }}</div>
-            <div>{{ item.category }}</div>
-            <img src="
-        </div>
-        
-    {% endfor %}
-    <!-- {% for category in categories %}
-        <div><a href="{% url 'category' category.id %}">{{ category.name }}</a></div>
-    {% endfor %}
-    <div><a href="{% url 'mypage' %}">마이페이지</a></div> -->
+{% for item in items %}
+<div><a href="{% url 'item' item.id %}">{{ item.name }}</a>
+    <div>{{ item.explain }}</div>
+    <div>{{ item.category }}</div>
+    <img src="{{ item.image.url }}">
+</div>
+
+{% endfor %}
+
 {% endblock content %}
