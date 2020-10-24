@@ -1,25 +1,44 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block head %}
+<html lang="ko">
+
+<head>
+    {% block head %}
     <title>회원가입</title>
-{% endblock head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+    {% endblock head %}
+</head>
 
-{% block content %}
-    <form action="{% url 'postuser' %}" method="POST">
-        
-        <div><label for="username">username</label><input type="text" name="username"></div>
-        <div><label for="password">password</label><input type="text" name="password"></div>
-        <div><label for="name">name</label><input type="text" name="name"></div>
-        <div><label for="phone_number">핸드폰</label><input type="text" name="phone_number"></div>
-        <div><label for="address">주소</label><input type="text" name="address" value="{{ address.roadFullAddr }}"></div>
-        
-        <input type="submit" value="회원가입">
-    </form>
-    <form action="{{ address_url }}" method="POST">
-        <input type="hidden" value="{{ key }}" name="confmKey">
-        <input type="hidden" value="{{ returnUrl }}" name="returnUrl">
-        <input type="hidden" value="{{ resultType }}" name="resultType">
-        <input type="submit" value="주소검색">
-    </form>
-    <div>{{ message }}</div>
-{% endblock content %}
+<body>
+    {% block content %}
+    <div class="form">
+        <form action="{% url 'postuser' %}" method="POST">
+            <div class="txt">회원가입</div>
+            <hr>
+
+            <div class="a"><label for="username">username</label><input type="text" name="username"></divc>
+                <div class="a"><label for="password">password</label><input type="text" name="password"></div>
+                <div class="a"><label for="name">name</label><input type="text" name="name"></div>
+                <div class="a"><label for="phone_number">핸드폰</label><input type="text" name="phone_number"></div>
+                <div class="a"><label for="address">주소</label><input type="text" name="address"
+                        value="{{ address.roadFullAddr }}">
+                </div>
+
+                <input type="submit" value="회원가입">
+        </form>
+        <form action="{{ address_url }}" method="POST">
+            <input type="hidden" value="{{ key }}" name="confmKey">
+            <input type="hidden" value="{{ returnUrl }}" name="returnUrl">
+            <input type="hidden" value="{{ resultType }}" name="resultType">
+            <input type="submit" value="주소검색">
+        </form>
+        <div>{{ message }}</div>
+
+    </div>
+
+    {% endblock content %}
+
+</body>
+
+</html>
