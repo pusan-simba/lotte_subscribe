@@ -2,7 +2,9 @@ from django.http import request
 from django.shortcuts import render
 
 from .models import Notice
+
 from items.models import Category, Mini_category
+
 
 # Create your views here.
 def home(request):

@@ -3,7 +3,9 @@ from django.http import request
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
+
 from .models import Item, Category, Option, Mini_category
+
 from account.models import User
 # Create your views here.
 def hello_simba(request):
@@ -89,5 +91,5 @@ def search(request):
     context['categories'] = categories
     mini_categories = Mini_category.objects.all()
     context['mini_categories'] = mini_categories
-    
+
     return render(request, 'search.html', context)

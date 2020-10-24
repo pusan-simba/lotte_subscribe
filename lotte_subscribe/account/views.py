@@ -67,7 +67,7 @@ def signup_page(request):
     context['resultType'] = '4'
     categories = Category.objects.all()
     context['categories'] = categories
-    
+
     if request.method == 'POST':
         address = request.POST
         context['address'] = address
@@ -82,7 +82,7 @@ def lotte_logout(request):
 @login_required
 def my_page(request):
     context = dict()
-
+    mini_categories = Mini_category.objects.all()
     categories = Category.objects.all()
     mini_categories = Mini_category.objects.all() 
     context['categories'] = categories
