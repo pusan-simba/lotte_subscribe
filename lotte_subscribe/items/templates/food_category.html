@@ -1,0 +1,25 @@
+{% extends  'base.html' %}
+{% load static %}
+{% block head %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/food.css' %}">
+{% endblock head %}
+{% block content %}
+    {% for mini_category in mini_categories %}
+        <div><a href="{% url 'get_mini_category' mini_category.id %}"> {{mini_category }}</a></div>
+    {% endfor %}
+
+    
+
+    {% for item in items %}
+        <div>{{ item.name }}</a></div>
+        <div>{{ item.explain }}</div>
+        
+        <img src="{{ item.image.url }}">
+       
+    {% endfor %}
+    <br>
+
+
+
+{% endblock content %}

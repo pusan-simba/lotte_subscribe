@@ -20,6 +20,7 @@
     <div>{{ item.name }}</div>
     <div>{{ item.explain }}</div>
     <div>{{ item.category }}</div>
+
     {% if item in user.likes.all %}
     <div>unlike</div>
     {% else %}

@@ -4,7 +4,6 @@ myvenv/
 __pycache__/
 migrations/
 media/
-static/
 .DS_Store
 *.ipynb
 secrets.json
