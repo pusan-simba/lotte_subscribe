@@ -28,9 +28,9 @@
                 <div class="like-image">
                     <a href="{% url 'subscribe_toggle' item.id %}">
                         {% if item in user.subscribes.all %}
-                        <div class="unsub">구독 취소</div>
+                        <img src="{% static '구독취소.png' %}" width="100px", height="40px" >
                         {% else %}
-                        <div class="sub">구독 하기</div>
+                        <img src="{% static '구독.png' %}" width="100px", height="40px" >
                         {% endif%}
                         </a>
                 </div>
