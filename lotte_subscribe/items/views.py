@@ -2,7 +2,7 @@ from os import name
 from django.http import request
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-
+from django.http import HttpResponseRedirect
 
 from .models import Item, Category, Option, Mini_category
 
@@ -63,10 +63,9 @@ def like_toggle(request, item_id):
     except:
         user.likes.add(item_id)
     if item.category_id == 1: # 카테고리가 푸드 일 때
-        return redirect('get_mini_category', item.mini_category_id)
+      return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
-        return redirect('category', item.category_id)
-
+       return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 @login_required
 def subscribe_toggle(request, item_id):
     user = request.user
@@ -79,9 +78,10 @@ def subscribe_toggle(request, item_id):
         user.subscribes.add(item_id)
 
     if item.category_id == 1:
-            return redirect('get_mini_category', item.mini_category_id)
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
-        return redirect('category', item.category_id)
+       return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+       
 
 
 def search(request):
