@@ -110,6 +110,18 @@ def my_likes(request):
     context['items'] = items
   
     return render(request, 'my_likes.html', context)
+@login_required
+def lotte_edituser(request):
+    if request.method == 'GET':
+        user = request.user
+        context = dict()
+        context['name'] = user.name
+        context['address'] = user.address
+        context['phone'] = user.phone_number
+
+        return render(request, 'edituser.html', context)
+    else:
+        return redirect('home')
 
 def address_api(request):
     response = request('http://www.juso.go.kr/addrlink/addrLinkUrl.do')

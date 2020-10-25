@@ -22,14 +22,14 @@
     <div>{{ item.category }}</div>
 
     {% if item in user.likes.all %}
-    <div>unlike</div>
+        <div>unlike</div>
     {% else %}
-    <div>like</div>
+        <div>like</div>
     {% endif%}
     {% if item in user.subscribes.all %}
-    <div>unsub</div>
+        <div>unsub</div>
     {% else %}
-    <div>sub</div>
+        <div>sub</div>
     {% endif%}
     <br>
     {% endfor %}
