@@ -1,0 +1,22 @@
+.mini-category-item{
+    background-color: pink;
+    border: solid black;
+    display: inline-block;
+    width: 40%;
+    margin-right: 5%;
+    height: 300px;
+    padding: 0;
+    position: relative;
+    border-radius: 20px;
+    text-align: center;
+    
+}
+
+.item-box{
+    /* border: solid black; */
+    position: absolute;
+    left: 25%;
+    display: flex;
+    top:30%;
+    width:74%;
+}

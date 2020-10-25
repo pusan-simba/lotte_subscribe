@@ -8,7 +8,7 @@
 <div class="mini-category">
     {% for mini_category in mini_categories %}
     <a href="{% url 'get_mini_category' mini_category.id %}">
-        <div class="mini-category-select"> {{mini_category }}</div>
+        <div class="mini-category-select" id="{{mini_category.id}}"> {{mini_category }}</div>
     </a>
     {% endfor %}
 </div>
@@ -29,27 +29,20 @@
             <img src="{% static '빈 하트.png' %}">
             {% endif%}
         </a>
-        <a href="{% url 'subscribe_toggle' item.id %}" class="empty-heart">
-            {% if item in user.subscribes.all %}
-            <div class="unsub">구독 취소</div>
-            {% else %}
-            <div class="sub">구독 하기</div>
-            {% endif%}
-        </a>
         {% endif%}
     </div>
     {% endfor %}
 
 
-
 </div>
 <script>
-    // sessionStorage.setItem("key1", () => {
-    //     var mini_category_select = document.querySelector(".mini-category-select");
-    //     mini_category_select.addEventListener("click", () => {
-    //         mini_category_select.style.backgroundColor = "#dd5954";
-    //     })
-    // })
+    var mini_category_select = document.querySelector(".mini-category-select");
+    for (i = 0; i < 10; i++) {
+        if (mini_category_select.id == {{ items.0.mini_category_id }
+    }) {
+        console.log("안녕하다")
+        mini_category_select.style.backgroundColor = "#dd5954"
+    }}
 
 </script>
 
