@@ -24,13 +24,16 @@ def get_category(request, category_id):
     
     if len(mini_categories) == 0:
         items = Item.objects.filter(category=category_id)
+        context['items'] = items
+        return render(request,'category.html', context)
     else:
         mini_categories = Mini_category.objects.all()
         context['mini_categories'] = mini_categories
         items = Item.objects.filter(mini_category=1)
+        context['items'] = items
+        return render(request, 'food_category.html', context)
+  
     
-    context['items'] = items
-    return render(request, 'food_category.html', context)
     # if category_id == 1:
     #     mini_categories = Mini_category.objects.all() #애도 미니카테고리 띄워줄려고 가져오는 변수.
     #     context['mini_categories'] = mini_categories
@@ -78,7 +81,7 @@ def subscribe_toggle(request, item_id):
         user.subscribes.remove(item_id)
     except:
         user.subscribes.add(item_id)
-        return redirect('https://www.naver.com')
+        return redirect('https://blog.lotte.co.kr/38116')
 
     if item.category_id == 1:
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
