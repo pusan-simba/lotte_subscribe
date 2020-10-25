@@ -102,8 +102,6 @@ a:hover {
     position: relative;
     display: inline-block;
     width: 70%;
-
-
 }
 
 .top-logo>img {
@@ -134,7 +132,7 @@ a:hover {
 @media(max-width:476px) {
     .nav {
         width: 100vw;
-        height: 100vh;
+        height: 200vh;
         background-color: black;
         display: none;
         top: 0;
@@ -286,9 +284,6 @@ a:hover {
         font-size: 20px;
         position: relative;
         left: 20%;
-
-
-
     }
 
     .top-logo>img {
@@ -304,12 +299,14 @@ ul {
 
 li {
     text-align: center;
-    height: 50px;
+    height: 80px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 li>p {
+    font-size: 18px;
     display: table-cell;
     vertical-align: middle;
     font-family: 'Noto Sans KR', sans-serif;
@@ -324,13 +321,42 @@ li>p {
     }
 }
 
-.search {
+.input1{
+    border: 2px solid #bbbbbb;
+    border-radius: 10px;
+    opacity: 1;
+    color:gray;
     display: inline-block;
     position: relative;
-    top: 15px;
+    /* top: 10px; */
+    left: 3%;
+    padding: 12px 3px 12px 6px;
+    width:85%;
+    
+}
+
+
+.search {
+    display:flex;
+    background: #F7F7F7 0% 0% no-repeat padding-box;
+    opacity: 1;
     left: 5%;
     padding: 10px;
+    width: 233px;
+    height: 100px;
 }
+.img1{
+    margin-left:8px;
+    /* position: relative; */
+    margin-top: 35px;
+    /* margin-left:180px; */
+    width: 16px;
+    height: 16px; 
+    bottom: 0;
+    object-fit:cover;
+   
+}
+
 
 .search>input {
     border-top-style: hidden;
@@ -348,7 +374,6 @@ li>p {
     background-color: black;
     color: white;
 }
-
 
 
 

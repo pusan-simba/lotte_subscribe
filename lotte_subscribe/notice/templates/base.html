@@ -78,10 +78,8 @@
             <ul>
                 <div class="search">
                     <form action="{% url 'search' %}" method="GET">
-                        <label for="query"><img
-                                style="width: 16px; height: 16px; position: relative; bottom: 0;object-fit:cover;"
-                                src="{% static 'search_img.png' %}"></label>
-                        <input type="text" id="query" value="검색" name="query">
+                        <label for="query"><img class="img1" src="{% static '돋보기.png' %}"></label>
+                        <input class="input1" type="text" id="query" value="Search" name="query">
                     </form>
                 </div>
                 {% for i in categories %}

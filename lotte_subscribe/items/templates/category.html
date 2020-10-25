@@ -2,17 +2,42 @@
 {% load static %}
 {% block head %}
 <title>카테고리</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/food.css' %}">
 {% endblock head %}
 
 {% block content %}
+<div class="item-box">
 {% for item in items %}
-<div class="item-container">
-<div><a href="{% url 'item' item.id %}">{{ item.name }}</a>
-    <div>{{ item.explain }}</div>
-    <div>{{ item.category }}</div>
-    <img src="{{ item.image.url }}">
-</div>
+<div class="category-item">
+    <div class="item-img">
+    <img src="{{ item.image.url }}" ></div>
+    <div class="title"><strong>{{ item.name }}</strong></div>
+    <div class="content">{{ item.explain }}</div>
 
+    <div class="btn-wrapper">
+    {% if user.is_authenticated %}
+       <div class="like-btn">
+        <a href="{% url 'like_toggle' item.id %}">
+        {% if item in user.likes.all %}
+        <img src="{% static '꽉찬 하트.png' %}" class="full-heart">
+        {% else %}
+        <img src="{% static '빈 하트.png' %}" class="empty-heart">
+        {% endif%}
+        </a>
+    </div>
+        <div class="sub-btn">
+        <a href="{% url 'subscribe_toggle' item.id %}" >
+    {% if item in user.subscribes.all %}
+    <img src="{% static '구독취소.png' %}" class="un-sub">
+    {% else %}
+    <img src="{% static '구독.png' %}" class="sub">
+    {% endif%}
+</a>
+</div>
+    {% endif%}
+</div>
+</div>
 {% endfor %}
+</div>
 
 {% endblock content %}

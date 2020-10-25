@@ -1,0 +1,32 @@
+.contain{
+    position: absolute;
+    width: 80%;
+    height: 40%;
+    left: 20%;
+    top: 15%;
+}
+.img{
+    margin-left:50%;
+    width:30px;
+    height: 30px;
+}
+
+.txt{
+    font-size:30px;
+    margin-bottom: 10px;
+    margin-top:25px;
+}
+.item{
+    float:left;
+    font-size:23px;
+}
+.btn{
+    padding: 10px 20px 10px 20px;
+    margin-left: 300px;
+    background-color: #dd5954;
+    font-size: 15px;
+    border-radius: 8px;
+    border: none;
+    color:white;
+    box-shadow: 3px 3px 5px rgb(211, 208, 208);
+}
