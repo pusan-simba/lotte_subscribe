@@ -22,32 +22,34 @@
         <div>{{ item.explain }}</div>
 
         {% if user.is_authenticated %}
-            <a href="{% url 'like_toggle' item.id %}">
+        <a href="{% url 'like_toggle' item.id %}">
             {% if item in user.likes.all %}
             <img src="{% static '꽉찬 하트.png' %}">
             {% else %}
             <img src="{% static '빈 하트.png' %}">
             {% endif%}
-            </a>
-            <a href="{% url 'subscribe_toggle' item.id %}">
-        {% if item in user.subscribes.all %}
-        <div class="unsub">구독 취소</div>
-        {% else %}
-        <div class="sub">구독 하기</div>
+        </a>
+        <a href="{% url 'subscribe_toggle' item.id %}">
+            {% if item in user.subscribes.all %}
+            <div class="unsub">구독 취소</div>
+            {% else %}
+            <div class="sub">구독 하기</div>
+            {% endif%}
+        </a>
         {% endif%}
-    </a>
-        {% endif%}
-        {% endfor %}
-       
-    
-</div>
+    </div>
+    {% endfor %}
+
+
 </div>
 <script>
     var mini_category_select = document.querySelector(".mini-category-select");
-    for (i = 0; i < 10; i++){
-        if (mini_category_select.id == {{ items.0.mini_category_id }}) {
+    for (i = 0; i < 10; i++) {
+        if (mini_category_select.id == {{ items.0.mini_category_id }
+    }) {
         console.log("안녕하다")
-        mini_category_select.style.backgroundColor = "#dd5954"}}
+        mini_category_select.style.backgroundColor = "#dd5954"
+    }}
 
 </script>
 
