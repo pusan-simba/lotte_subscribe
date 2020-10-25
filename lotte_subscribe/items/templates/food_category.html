@@ -18,6 +18,8 @@
     {% for item in items %}
     <div class="mini-category-item">
         <img src="{{ item.image.url }}" style="width: 100%; height: 60%; border-radius: 20px;">
+
+
         <div>{{ item.name }}</div>
         <div>{{ item.explain }}</div>
 
@@ -37,10 +39,10 @@
         {% endif%}
     </a>
         {% endif%}
-        {% endfor %}
-       
-    
-</div>
+
+    </div>
+    {% endfor %}
+
 </div>
 <script>
     // sessionStorage.setItem("key1", () => {

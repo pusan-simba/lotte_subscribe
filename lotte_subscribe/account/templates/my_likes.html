@@ -1,42 +1,33 @@
 {% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block head %}
+{% block head %}
     <title>관심있는 구독</title>
-    {% endblock head%}
     <link rel="stylesheet" type="text/css" href="{% static 'css/my_likes.css' %}">
-</head>
+{% endblock head%}    
 
-<body>
-    {% block content %}
+{% block content %}
     {% for item in items %}
-  
-    <div><img src="{{ item.image.url }}"></div>
-    <div>{{ item.name }}</a></div>
-    <div>{{ item.explain }}</div>
-     <div>{{ item.category }}</div>
-    {% if user.is_authenticated %}
+
+        <div><img src="{{ item.image.url }}"></div>
+        <div>{{ item.name }}</a></div>
+        <div>{{ item.explain }}</div>
+        <div>{{ item.category }}</div>
+        
+        {% if user.is_authenticated %}
+
         <a href="{% url 'like_toggle' item.id %}">
         {% if item in user.likes.all %}
-        <img src="{% static '꽉찬 하트.png' %}">
+            <img src="{% static '꽉찬 하트.png' %}">
         {% else %}
-        <img src="{% static '빈 하트.png' %}">
+            <img src="{% static '빈 하트.png' %}">
         {% endif%}
         </a>
     
-    {% endif%}
-
-   
-   
-{% endfor %}
+        {% endif%}
+    {% endfor %}
 <br>
 
-    {% endblock content %}
-</body>
+{% endblock content %}
 
 </html>
