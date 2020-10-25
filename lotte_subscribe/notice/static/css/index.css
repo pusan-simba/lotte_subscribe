@@ -20,7 +20,6 @@ a:hover {
 .top {
     /* position: relative; */
     top: 8px;
-    margin-bottom: 8px;
     box-shadow: 5px 5px 5px rgb(248, 247, 247);
 
 }
@@ -368,9 +367,7 @@ li>p {
     height: 70px;
     background-color: black;
     color: white;
-    border-radius: 5px;
 }
-
 
 
 
@@ -461,7 +458,7 @@ li>p {
 
 .modal_wrap {
     display: none;
-    width: 30%;
+    width: 40%;
     height: 60%;
     position: absolute;
     top: 50%;
@@ -471,6 +468,34 @@ li>p {
     border-radius: 30px;
     z-index: 2;
     text-align: center;
+}
+@media(max-width:1024px){
+    .modal_wrap{
+        width:50%;
+    }
+}
+@media(max-width:768px){
+    .modal_wrap{
+        left:60%;
+    }
+}
+@media(max-width:550px){
+    .modal-wrap{
+        width:60%;
+        left:65%;
+    }
+}
+@media(max-width:480px){
+    .modal_wrap{
+        width:80%;
+        left:300px;
+    }
+}
+@media(max-width:376px){
+    .modal_wrap{
+        width:80%;
+        left: 280px;
+    }
 }
 
 .black_bg {
@@ -511,4 +536,44 @@ li>p {
     border: none;
     color: white;
     box-shadow: 3px 3px 5px rgb(211, 208, 208);
+}
+/* .fix-wrap{
+    display: hidden;
+    position:absolute;
+    width: 70%;
+    height: 70%;
+    background: #dd5954;
+} */
+/* 반응형적용 */
+@media(max-width:1300px){
+    input{
+        width:80%;
+    }
+}
+@media(max-width:880px){
+    input{
+        width:70%;
+    }
+}
+@media(max-width:626px){
+    input{
+        width:60%;
+    }
+}
+
+@media(max-width:1285px){
+    #my-page-p{
+        font-size: 15px;
+    }
+    #logout-p{
+        font-size: 15px;
+    }
+}
+@media(max-width: 1086px){
+    #my-page-p{
+        font-size: 12px;
+    }
+    #logout-p{
+        font-size: 12px;
+    }
 }
