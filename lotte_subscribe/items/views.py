@@ -1,6 +1,6 @@
 from os import name
 from django.http import request
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 
@@ -63,9 +63,11 @@ def like_toggle(request, item_id):
     except:
         user.likes.add(item_id)
     if item.category_id == 1: # 카테고리가 푸드 일 때
-      return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
-       return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
 @login_required
 def subscribe_toggle(request, item_id):
     user = request.user
@@ -76,12 +78,13 @@ def subscribe_toggle(request, item_id):
         user.subscribes.remove(item_id)
     except:
         user.subscribes.add(item_id)
+        return redirect('https://www.naver.com')
 
     if item.category_id == 1:
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
-       return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-       
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
 
 
 def search(request):

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<title>회원정보 수정</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/edituser.css' %}">
+{% endblock head%}
+
+{% block content %}
+<div class="contain">
+    <form action="{% url 'edituser' %}" method="POST">
+        <div class="txt"><b>내 정보수정</b></div>
+        <hr size="2.5" color="black" width="50%" align="left"><br>
+
+        {% csrf_token %}
+        <label class="a" for="name">이름</label><input class="in" type="text" name="name" value="{{ name }}"><br>
+        <!-- <label for="address">주소</label><input type="text" name="address" value="{{ address }}"> -->
+        <label class="b" for="phone">전화번호</label><input class="in" type="text" name="phone" value="{{ phone }}"><br>
+        <label class="b" for="password">비밀번호</label><input class="in" type="text" name="password"><br>
+        <label class="c" for="password">비밀번호 확인</label><input class="in" type="text" name="password_confirm"><br>
+        <input class="btn" type="submit" value="변경">
+    </form>
+</div>
+
+<div>{{ message }}</div>
+{% endblock content %}
