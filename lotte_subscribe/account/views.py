@@ -34,7 +34,7 @@ def lotte_sign_up(request):
     context = dict()
     context['address_url'] = address_url
     context['key'] = key
-    context['returnUrl'] = 'http://13.125.213.141/account/signup/'
+    context['returnUrl'] = 'http://13.125.213.141/' + request.path
     context['resultType'] = '4'
     
     if request.method == 'POST':
@@ -63,7 +63,7 @@ def signup_page(request):
     context = dict()
     context['address_url'] = address_url
     context['key'] = key
-    context['returnUrl'] = 'http://13.125.213.141/account/signup/'
+    context['returnUrl'] = 'http://13.125.213.141/' + request.path
     context['resultType'] = '4'
     categories = Category.objects.all()
     context['categories'] = categories
@@ -97,9 +97,9 @@ def my_subscribes(request):
     user = request.user
     items = user.subscribes.all()
     context['items'] = items
+
     categories = Category.objects.all()
     context['categories'] = categories
-  
   
     return render(request, 'my_subscribes.html', context)
 
@@ -110,11 +110,50 @@ def my_likes(request):
 
     user = request.user
     items = user.likes.all()
+
     context['items'] = items
+
     categories = Category.objects.all()
     context['categories'] = categories
   
     return render(request, 'my_likes.html', context)
+    
+@login_required
+def lotte_edituser(request):
+    user = request.user
+    context = dict()
+    context['name'] = user.name
+    context['address'] = user.addresss
+    context['phone'] = user.phone_number
+        
+    categories = Category.objects.all()
+    context['categories'] = categories
+
+    if request.method == 'GET':    
+        return render(request, 'edituser.html', context)
+    else:
+        name = request.POST['name']
+        # address = request.POST['address']
+        phone = request.POST['phone']
+
+        password_confirm = request.POST['password_confirm']
+        password = request.POST['password']
+
+        if password != password_confirm:
+            message = "비밀번호를 확인하세요"
+            context['message'] = message
+            return render(request, 'edituser.html', context)
+
+        user.name = name
+        # user.addresss = address
+        user.phone_number = phone 
+        
+        if password != '':
+            user.set_password(password)
+
+        user.save()
+        login(request, user)
+        return redirect('home')
 
 def address_api(request):
     response = request('http://www.juso.go.kr/addrlink/addrLinkUrl.do')

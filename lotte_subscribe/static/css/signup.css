@@ -1,0 +1,71 @@
+/* input class가 in */
+.in{
+    border-radius: 3px; 
+    width: 20%; 
+    border: solid 1.5px rgb(189, 186, 186); 
+    margin:0 0 10px 20px;
+    padding:4px;
+}
+
+.in2{
+    border-radius: 3px; 
+    width: 20%; 
+    border: solid 1.5px rgb(189, 186, 186); 
+    margin:0 0 10px 20px;
+    padding:4px;
+}
+
+
+/* label class가 a */
+.a{
+    margin-right:65px;
+}
+.b{
+    margin-right:49px;
+}
+.c{
+    margin-right:33px;
+}
+.d{
+    margin-right:11px;
+}
+
+.contain{
+    position: absolute;
+    width: 80%;
+    height: 40%;
+    left: 20%;
+    top: 15%;
+}
+
+.txt{
+    font-size:25px;
+    margin-bottom: 10px;
+    margin-top:25px;
+}
+
+.btn{
+    margin-left: 170px;
+    background-color: #dd5954;
+    width: 130px;
+    height: 40px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    box-shadow: 3px 3px 5px rgb(211, 208, 208);
+}
+
+.btn2{
+    margin-left :400px;
+    margin-top: -51px;
+    background-color: #fffefe;
+    width: 110px;
+    height: 25px;
+    font-size: 13px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: rgb(155, 155, 155);
+    color: rgb(0, 0, 0);
+    /* box-shadow: 3px 3px 5px rgb(211, 208, 208); */
+}

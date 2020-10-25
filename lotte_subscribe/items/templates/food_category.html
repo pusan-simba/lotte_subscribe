@@ -21,7 +21,7 @@
         <div><strong>{{ item.name }}</strong></div>
         <div>{{ item.explain }}</div>
 
-        {% if user.is_authenticated %}
+        {% if user.is_authnticated %}
             <a href="{% url 'like_toggle' item.id %}">
             {% if item in user.likes.all %}
             <img src="{% static '꽉찬 하트.png' %}" class="full-heart">

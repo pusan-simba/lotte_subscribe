@@ -1,0 +1,53 @@
+.mini-category-item{
+    background-color: pink;
+    border: solid black;
+    display: inline-block;
+    width: 40%;
+    margin-right: 5%;
+    height: 300px;
+    padding: 0;
+    position: relative;
+    border-radius: 20px;
+    text-align: center;
+    
+}
+
+.item-box{
+    /* border: solid black; */
+    position: absolute;
+    left: 25%;
+    display: flex;
+    top:30%;
+    width:74%;
+}
+
+.mini-category{
+    margin-top: 3%;
+    height: 6%;
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+    left: 25%;
+    
+
+}
+
+
+
+
+
+.mini-category-select{
+    border: solid rgb(206, 205, 205);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 100%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.mini-category-select:hover{
+    background-color: #dd5954;
+}

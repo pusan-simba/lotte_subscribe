@@ -1,4 +1,4 @@
-/* .mini-category-item {
+.mini-category-item {
     background-color: pink;
     border: solid black;
     display: inline-block;
@@ -14,7 +14,7 @@
 }
 
 .item-box {
- 
+
     position: absolute;
     left: 25%;
     display: flex;
@@ -22,7 +22,7 @@
     width: 74%;
     font-family: 'Noto Sans KR', sans-serif;
 }
-*/
+
 
 .mini-category {
     margin-top: 3%;

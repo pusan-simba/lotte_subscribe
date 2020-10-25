@@ -1,7 +1,7 @@
 from os import name
 from django.urls import path
 
-from .views import lotte_login, lotte_sign_up, lotte_logout, my_page, my_subscribes, my_likes, signup_page
+from .views import lotte_login, lotte_sign_up, lotte_logout, my_page, my_subscribes, my_likes, signup_page, lotte_edituser
 
 
 urlpatterns = [
@@ -12,4 +12,5 @@ urlpatterns = [
     path('mypage/', my_page, name='mypage'),
     path('mysubscribe/', my_subscribes, name='mysub'),
     path('mylike/', my_likes, name='mylike'),
+    path('edituser/', lotte_edituser, name='edituser'),
 ]
