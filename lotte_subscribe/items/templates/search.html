@@ -1,18 +1,28 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block head %}
-    <title>검색 결과</title>
+<title>검색 결과</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
 {% endblock head%}
 
+
 {% block content %}
-    {% for category in categories %}
+<div class="contain">
+    <!-- {% for category in categories %}
         <div><a href="{% url 'category' category.id %}">{{ category.name }}</a></div>
-    {% endfor %}
-    <div><a href="{% url 'mypage' %}">마이페이지</a></div>
+        {% endfor %}
+        <div><a href="{% url 'mypage' %}">마이페이지</a></div> -->
+
+    <div class="txt"><b>검색결과</b></div>
+    <hr size="2.5" color="black" width="55%" align="left"><br>
 
     {% for item in items %}
-        <div>{{ item.name }}</div>
-        <div>{{ item.explain }}</div>
-        <div>{{ item.image }}</div>
+    <div class="item"> {{ item.name }}</div><br>
+    <div class="img">{{ item.image }}</div><br>
+    <div>◾ {{ item.explain }}</div><br>
+    <hr width="55%" align="left"><br>
     {% endfor %}
+    <a class="btn" href="{% url 'home' %}" style="color: white;">돌아가기</a>
+</div>
 {% endblock content %}

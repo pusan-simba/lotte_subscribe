@@ -33,11 +33,11 @@
 }
 
 .box{
-    border-width: 3px;
+    border-width: 2px;
     border-style: solid;
     border-radius: 8px;
     /* border-color: rgb(214, 214, 214); */
-    border-color: black;
+    border-color: rgb(0, 0, 0);
     height:50%;
     width: 55%;
 }
