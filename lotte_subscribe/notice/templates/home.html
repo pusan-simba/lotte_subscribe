@@ -4,7 +4,6 @@
 {% endblock head %}
 
 {% block content %}
-
 <div class="carousel-container">
     <div class="carousel-slide">
 
@@ -13,10 +12,13 @@
         <img src="../static/KakaoTalk_20201010_172316264.png">
         <img src="../static/KakaoTalk_20201010_172318116.png" id="firstClone">
     </div>
-    <div class="carousel-text">
-        공지사항 들어가는 자리
+    <div class="carousel-text"><br>
+        <div style="font-size:28px; margin-left:20px;">
+            <b>❗ 공지사항</b>
+        </div><br>
         {% for notice in notices %}
-        <div><a href="{% url 'notice' notice.id %}">{{ notice.title }}</a></div>
+        <div style="font-size:20px; margin-left:20px;"><a
+                href="{% url 'notice' notice.id %}">◾{{ notice.title }}<br><br></a></div>
         {% endfor %}
     </div>
     <div class="prev-btn">

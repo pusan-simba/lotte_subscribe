@@ -5,6 +5,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/static/da.JPG/" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     {% block head %}{% endblock head %}
@@ -20,8 +21,8 @@
             <div class="top-logo">
                 <a href="{% url 'home' %}">
                     <img src="{% static 'logo-image.png' %}">
-                
-                    </a>
+
+                </a>
             </div>
             <div class="account">
 
@@ -57,8 +58,9 @@
                                 type="text" name="password"><br><br><br><br>
                             <button type="submit" class="login-confirm">확인</button>
                         </form>
-                        <div><a href="{% url 'signup' %}" style="color: #dd5954;"><strong> 아직 회원이 아니신가요? </strong><br>회원가입</a></div>
-                      
+                        <div><a href="{% url 'signup' %}" style="color: #dd5954;"><strong> 아직 회원이 아니신가요?
+                                </strong><br>회원가입</a></div>
+
                         <div>{{ message }}</div>
                     </div>
                 </div>
@@ -92,7 +94,7 @@
             </ul>
         </div>
 
-        
+
 
 
 
