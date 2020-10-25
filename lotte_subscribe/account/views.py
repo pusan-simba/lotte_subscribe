@@ -97,6 +97,9 @@ def my_subscribes(request):
     user = request.user
     items = user.subscribes.all()
     context['items'] = items
+
+    categories = Category.objects.all()
+    context['categories'] = categories
   
     return render(request, 'my_subscribes.html', context)
 
@@ -109,6 +112,10 @@ def my_likes(request):
     items = user.likes.all()
 
     context['items'] = items
+
+    categories = Category.objects.all()
+    context['categories'] = categories
+  
     return render(request, 'my_likes.html', context)
     
 @login_required

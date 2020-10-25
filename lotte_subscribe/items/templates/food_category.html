@@ -22,7 +22,7 @@
 
         <div>{{ item.name }}</div>
         <div>{{ item.explain }}</div>
-        <!-- <div><img src="{{ item.image.url }}"></div> -->
+
         {% if user.is_authenticated %}
             <a href="{% url 'like_toggle' item.id %}">
             {% if item in user.likes.all %}
@@ -39,8 +39,10 @@
         {% endif%}
     </a>
         {% endif%}
+
     </div>
     {% endfor %}
+
 </div>
 <script>
     // sessionStorage.setItem("key1", () => {

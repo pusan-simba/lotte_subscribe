@@ -15,6 +15,7 @@
         <div>{{ item.category }}</div>
         
         {% if user.is_authenticated %}
+
         <a href="{% url 'like_toggle' item.id %}">
         {% if item in user.likes.all %}
             <img src="{% static '꽉찬 하트.png' %}">
