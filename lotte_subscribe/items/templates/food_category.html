@@ -48,8 +48,20 @@
         {% endfor %}
        
     
-
 </div>
+
+
+
+<script>
+    var mini_category_select = document.querySelector(".mini-category-select");
+    for (i = 0; i < 10; i++) {
+        if (mini_category_select.id == {{ items.0.mini_category_id }
+    }) {
+        console.log("안녕하다")
+        mini_category_select.style.backgroundColor = "#dd5954"
+    }}
+
+</script>
 
 
 

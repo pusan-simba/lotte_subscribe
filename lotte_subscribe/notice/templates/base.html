@@ -5,6 +5,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/static/da.JPG/" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     {% block head %}{% endblock head %}
@@ -20,8 +21,8 @@
             <div class="top-logo">
                 <a href="{% url 'home' %}">
                     <img src="{% static 'logo-image.png' %}">
-                
-                    </a>
+
+                </a>
             </div>
             <div class="account">
 
@@ -29,14 +30,14 @@
 
                 <div class="my-page"><a href="{% url 'mypage' %}"><img src="{% static 'mypage.png' %}"
                             style="width:40px; height:40px;">
-                        <p
-                            style="display: inline-block; font-size: 20px; font-weight: bold; position: relative; bottom: 25%;">
+                        <p id="my-page-p"
+                            style="display: inline-block; font-weight: bold; position: relative; bottom: 25%;">
                             마이페이지</p>
                     </a></div>
                 <div class="logout"><a href="{% url 'logout' %}"><img src="{% static '로그아웃.png' %}"
                             style="width:40px; height: 40px;">
-                        <p
-                            style="display: inline-block; font-size: 20px; font-weight: bold; position: relative; bottom:25%">
+                        <p id="logout-p"
+                            style="display: inline-block; font-weight: bold; position: relative; bottom:25%">
                             로그아웃</p>
                     </a></div>
                 {% else %}
@@ -57,8 +58,9 @@
                                 type="text" name="password"><br><br><br><br>
                             <button type="submit" class="login-confirm">확인</button>
                         </form>
-                        <div><a href="{% url 'signup' %}" style="color: #dd5954;"><strong> 아직 회원이 아니신가요? </strong><br>회원가입</a></div>
-                      
+                        <div><a href="{% url 'signup' %}" style="color: #dd5954;"><strong> 아직 회원이 아니신가요?
+                                </strong><br>회원가입</a></div>
+
                         <div>{{ message }}</div>
                     </div>
                 </div>
@@ -92,15 +94,20 @@
             </ul>
         </div>
 
-        
+
 
 
 
         <div class="footer">
-            copyright by 부산 멋쟁이사자처럼
+            Copyright &copy; 부산 멋쟁이사자처럼 심바팀
         </div>
     </div>
 
+    <!-- <div class="fix-wrap">
+        <div>
+            공사중
+        </div>
+        <div> -->
 
     <script>
 
@@ -125,6 +132,20 @@
             nav.style.display = 'none';
             navIcon.innerHTML = '<img src="static/menuicon.png">';
         };
+
+
+
+                // window.onload = function () {
+                //     function under() {
+                //         var container = document.querySelector(".fix-wrap");
+                //         container.style.display = 'block';
+                //     }
+                //     if (screen.width < 500) {
+                //         under();
+                //     }
+                // }
+
+
 
     </script>
     <script src="{% static 'js/login.js' %}"></script>

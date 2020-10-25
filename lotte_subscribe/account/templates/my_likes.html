@@ -4,29 +4,44 @@
 {% block head %}
     <title>관심있는 구독</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/my_likes.css' %}">
-{% endblock head%}    
+    {% endblock head%}
 
-{% block content %}
-    {% for item in items %}
+</head>
 
-        <div><img src="{{ item.image.url }}"></div>
-        <div>{{ item.name }}</a></div>
-        <div>{{ item.explain }}</div>
-        <div>{{ item.category }}</div>
-        
-        {% if user.is_authenticated %}
+<body>
+    {% block content %}
+    <div class="my-like-container">
+        <p style="font-size: 30px;">내 찜 리스트</p>
+        <hr style="margin-bottom: 5%; height: 3px; border: 0; background-color: black; width:80%; margin-left:0;">
+        <div class="item-box">
+            {% for item in items %}
+            <div class="low-box">
+                <img src="{{ item.image.url }}">
+                <div class="low-box-explain-box">
+                    <div class="low-box-explain">
+                        <div>{{ item.name }}</a></div>
+                        <div>{{ item.explain }}</div>
+                    </div>
+                </div>
 
-        <a href="{% url 'like_toggle' item.id %}">
-        {% if item in user.likes.all %}
-            <img src="{% static '꽉찬 하트.png' %}">
-        {% else %}
-            <img src="{% static '빈 하트.png' %}">
-        {% endif%}
-        </a>
-    
-        {% endif%}
-    {% endfor %}
-<br>
+                {% if user.is_authenticated %}
+                <div class="like-image">
+                    <a href="{% url 'like_toggle' item.id %}">
+                        {% if item in user.likes.all %}
+                        <img src="{% static '꽉찬 하트.png' %}" style="width: 30px; height:30px">
+                        {% else %}
+                        <img src="{% static '빈 하트.png' %}" style="width: 30px; height: 30px;">
+                        {% endif%}
+                    </a>
+                </div>
+
+
+                {% endif%}
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
 
 {% endblock content %}
 
