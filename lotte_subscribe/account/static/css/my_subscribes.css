@@ -1,45 +1,62 @@
-.low-box{
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.low-box {
     border-bottom: solid rgb(204, 201, 201);
-    width:74%;
+    width: 74%;
     height: 200px;
     margin-bottom: 5%;
     position: relative;
 
 }
 
-.low-box>img{
-    width:20%;
-    height: 80%; 
+.low-box>img {
+    width: 20%;
+    height: 80%;
 }
 
-.item-box{
+.item-box {
     height: 100%;
 }
 
-.low-box-explain-box{
+.low-box-explain-box {
     display: inline-block;
     position: absolute;
-    height:100%;
-    width:80%;
+    height: 100%;
+    width: 70%;
+    margin-left: 5%;
 }
-.low-box-explain{
-    display:flex;
-    align-items: center;
+
+.low-box-explain {
+    display: flex;
+    justify-content: center;
     flex-direction: column;
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
 }
-.like-image{
-    position:absolute;
+
+.like-image {
+    position: absolute;
     right: 5%;
-    top:10%;
+    top: 10%;
 }
-.my-like-container{
+
+.my-like-container {
     position: absolute;
     width: 80%;
     left: 20%;
     top: 15%;
-    height:75%;
+    height: 75%;
     overflow: hidden;
     overflow-y: scroll;
+}
+
+@media(max-width:768px) {
+
+    .low-box>img {
+        width: 30%;
+        height: 70%;
+    }
+
 }
