@@ -23,15 +23,15 @@
         <div>{{ item.name }}</a></div>
         <div>{{ item.explain }}</div>
         <div>{{ item.category }}</div>  
-        <!-- {% if user.is_authenticated %}
+        {% if user.is_authenticated %}
         <a href="{% url 'subscribe_toggle' item.id %}">
         {% if item in user.subscribes.all %}
         <div class="unsub">구독 취소</div>
         {% else %}
         <div class="sub">구독 하기</div>
         {% endif%}
-    </a>
-        {% endif%} -->
+        </a>
+        {% endif%}
     
     {% endfor %}
     <br>
