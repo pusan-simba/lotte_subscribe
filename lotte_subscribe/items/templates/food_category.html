@@ -8,7 +8,7 @@
 <div class="mini-category">
     {% for mini_category in mini_categories %}
     <a href="{% url 'get_mini_category' mini_category.id %}">
-        <div class="mini-category-select"> {{mini_category }}</div>
+        <div class="mini-category-select"> {{ mini_category }}</div>
     </a>
     {% endfor %}
 </div>
@@ -17,41 +17,39 @@
 <div class="item-box">
     {% for item in items %}
     <div class="mini-category-item">
-        <img src="{{ item.image.url }}" style="width: 100%; height: 60%; border-radius: 20px;">
-        <div><strong>{{ item.name }}</strong></div>
-        <div>{{ item.explain }}</div>
+        <div class="item-img">
+        <img src="{{ item.image.url }}" ></div>
+        <div class="title"><strong>{{ item.name }}</strong></div>
+        <div class="content">{{ item.explain }}</div>
 
-        {% if user.is_authnticated %}
+        <div class="btn-wrapper">
+        {% if user.is_authenticated %}
+           <div class="like-btn">
             <a href="{% url 'like_toggle' item.id %}">
             {% if item in user.likes.all %}
             <img src="{% static '꽉찬 하트.png' %}" class="full-heart">
             {% else %}
-            <img src="{% static '빈 하트.png' %}">
+            <img src="{% static '빈 하트.png' %}" class="empty-heart">
             {% endif%}
             </a>
+        </div>
+            <div class="sub-btn">
             <a href="{% url 'subscribe_toggle' item.id %}" class="empty-heart">
         {% if item in user.subscribes.all %}
-        <div class="unsub">구독 취소</div>
+        <img src="{% static '구독취소.png' %}" class="un-sub">
         {% else %}
-        <div class="sub">구독 하기</div>
+        <img src="{% static '구독.png' %}" class="sub">
         {% endif%}
     </a>
+</div>
         {% endif%}
+    </div>
     </div>
         {% endfor %}
        
     
 
 </div>
-<script>
-    // sessionStorage.setItem("key1", () => {
-    //     var mini_category_select = document.querySelector(".mini-category-select");
-    //     mini_category_select.addEventListener("click", () => {
-    //         mini_category_select.style.backgroundColor = "#dd5954";
-    //     })
-    // })
-
-</script>
 
 
 
