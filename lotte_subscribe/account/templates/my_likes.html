@@ -14,31 +14,28 @@
 
 <body>
     {% block content %}
-    {% if is_liked %}
-    <div class="a">
-        <div>
-            <a href="{% url 'like_toggle' item.id %}">싫어임마</a>
-        </div>
-        {% else %}
-        <div>
-            <a href="{% url 'like_toggle' item.id %}">좋아한다</a>
-        </div>
-        {% endif %}
-    </div>
-
-
-    <div>{{ item.name }}</div>
+    {% for item in items %}
+  
+    <div><img src="{{ item.image.url }}"></div>
+    <div>{{ item.name }}</a></div>
     <div>{{ item.explain }}</div>
-    <div>{{ item.category }}</div>
-    <br>
-    {% for category in categories %}
-    <div>
-        <a href="{% url 'category' category.id %}">{{ category.name }}</a>
-    </div>
-    {% endfor %}
-    <div>
-        <a href="{% url 'mypage' %}">마이페이지</a>
-    </div>
+     <div>{{ item.category }}</div>
+    <!-- {% if user.is_authenticated %}
+        <a href="{% url 'like_toggle' item.id %}">
+        {% if item in user.likes.all %}
+        <img src="{% static '꽉찬 하트.png' %}">
+        {% else %}
+        <img src="{% static '빈 하트.png' %}">
+        {% endif%}
+        </a>
+    
+    {% endif%} -->
+
+   
+   
+{% endfor %}
+<br>
+
     {% endblock content %}
 </body>
 

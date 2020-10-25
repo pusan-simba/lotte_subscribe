@@ -11,6 +11,8 @@ from account.models import User
 def hello_simba(request):
     return render(request, 'simba.html')
 
+
+
 def get_category(request, category_id):
     context = {}
 
@@ -53,26 +55,34 @@ def get_mini_category(request,mini_category_id):
 @login_required
 def like_toggle(request, item_id):
     user = request.user
+    item = Item.objects.get(id=item_id)
 
     try:
         check = user.likes.all().get(id=item_id)
         user.likes.remove(item_id)
     except:
         user.likes.add(item_id)
-
-    return redirect('get_category', item_id)
+    if item.category_id == 1: # 카테고리가 푸드 일 때
+        return redirect('get_mini_category', item.mini_category_id)
+    else:
+        return redirect('category', item.category_id)
 
 @login_required
 def subscribe_toggle(request, item_id):
     user = request.user
+    item = Item.objects.get(id=item_id)
 
     try:
         check = user.subscribes.all().get(id=item_id)
         user.subscribes.remove(item_id)
     except:
         user.subscribes.add(item_id)
-    
-    return redirect('item', item_id)
+
+    if item.category_id == 1:
+            return redirect('get_mini_category', item.mini_category_id)
+    else:
+        return redirect('category', item.category_id)
+
 
 def search(request):
     context = dict()

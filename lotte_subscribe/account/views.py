@@ -97,6 +97,7 @@ def my_subscribes(request):
     user = request.user
     items = user.subscribes.all()
     context['items'] = items
+    
   
     return render(request, 'my_subscribes.html', context)
 
@@ -110,6 +111,7 @@ def my_likes(request):
     context['items'] = items
   
     return render(request, 'my_likes.html', context)
+    
 @login_required
 def lotte_edituser(request):
     if request.method == 'GET':

@@ -9,7 +9,7 @@ class Category(models.Model):
 
 class Mini_category(models.Model):
     name = models.CharField(max_length=20)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE ,null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE ,blank=True, null=True)
     def __str__(self):
         return self.name
 
@@ -18,7 +18,7 @@ class Item(models.Model):
     explain = models.TextField()
     image = models.ImageField(blank=True)
     category = models.ForeignKey(to=Category, on_delete=models.CASCADE)
-    mini_category = models.ForeignKey(to=Mini_category,on_delete=models.CASCADE, null=True)
+    mini_category = models.ForeignKey(to=Mini_category,on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.name    

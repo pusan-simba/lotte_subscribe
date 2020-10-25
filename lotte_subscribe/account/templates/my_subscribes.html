@@ -16,7 +16,9 @@
     {% block content %}
     내 구독 관리
     <hr>
+   
     {% for item in items %}
+<<<<<<< HEAD
     <div>{{ item.name }}</div>
     <div>{{ item.explain }}</div>
     <div>{{ item.category }}</div>
@@ -37,10 +39,26 @@
     <div>
         <a href="{% url 'category' category.id %}">{{ category.name }}</a>
     </div>
+=======
+       
+        <div><img src="{{ item.image.url }}"></div>
+        <div>{{ item.name }}</a></div>
+        <div>{{ item.explain }}</div>
+        <div>{{ item.category }}</div>  
+        <!-- {% if user.is_authenticated %}
+        <a href="{% url 'subscribe_toggle' item.id %}">
+        {% if item in user.subscribes.all %}
+        <div class="unsub">구독 취소</div>
+        {% else %}
+        <div class="sub">구독 하기</div>
+        {% endif%}
+    </a>
+        {% endif%} -->
+    
+>>>>>>> 49e60e017bcc148f13ebf674d74e07e379a8cf43
     {% endfor %}
-    <div>
-        <a href="{% url 'mypage' %}">마이페이지</a>
-    </div>
+    <br>
+
     {% endblock content %}
 </body>
 
