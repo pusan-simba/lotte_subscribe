@@ -1,4 +1,4 @@
-.mini-category-item{
+/* .mini-category-item {
     background-color: pink;
     border: solid black;
     display: inline-block;
@@ -9,27 +9,30 @@
     position: relative;
     border-radius: 20px;
     text-align: center;
-    
+    font-family: 'Noto Sans KR', sans-serif;
+
 }
 
-.item-box{
-    /* border: solid black; */
+.item-box {
+ 
     position: absolute;
     left: 25%;
     display: flex;
-    top:30%;
-    width:74%;
+    top: 30%;
+    width: 74%;
+    font-family: 'Noto Sans KR', sans-serif;
 }
+*/
 
-.mini-category{
+.mini-category {
     margin-top: 3%;
     height: 6%;
     position: absolute;
     display: flex;
     justify-content: flex-start;
     text-align: center;
-    left: 25%;
-    
+    left: 40%;
+    font-family: 'Noto Sans KR', sans-serif;
 
 }
 
@@ -37,7 +40,7 @@
 
 
 
-.mini-category-select{
+.mini-category-select {
     border: solid rgb(206, 205, 205);
     display: flex;
     align-items: center;
@@ -46,8 +49,9 @@
     height: 100%;
     font-size: 20px;
     font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
-.mini-category-select:hover{
+.mini-category-select:hover {
     background-color: #dd5954;
 }
