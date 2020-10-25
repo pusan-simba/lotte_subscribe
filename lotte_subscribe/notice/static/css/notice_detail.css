@@ -1,0 +1,43 @@
+.contain{
+    position: absolute;
+    width: 80%;
+    height: 40%;
+    left: 20%;
+    top: 15%;
+    font-style: bold;
+    font-size: 20px;
+}
+
+.title{
+    display: inline;
+    font-size: 30px;
+    margin-bottom:10%;
+}
+.date{
+    display: inline;
+    margin-top: 20%;
+    margin-left: 44%;
+    font-size:17px;
+}
+
+
+.btn{
+    padding: 10px 20px 10px 20px;
+    margin-left: 310px;
+    background-color: #dd5954;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    color:white;
+    box-shadow: 3px 3px 5px rgb(211, 208, 208);
+}
+
+.box{
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 8px;
+    /* border-color: rgb(214, 214, 214); */
+    border-color: black;
+    height:50%;
+    width: 55%;
+}

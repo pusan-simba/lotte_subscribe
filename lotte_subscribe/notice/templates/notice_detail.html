@@ -1,11 +1,21 @@
 {% extends 'base.html' %}
 {% block head %}
-    <title>공지사항</title>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/notice_detail.css' %}">
+<title>공지사항</title>
 {% endblock head%}
 
 {% block content %}
-    <div>{{ notice.title }}</div>
-    <div>{{ notice.content }}</div>
-    <div>{{ notice.date }}</div>
-    <div>{{ notice.image }}</div>
+
+<div class="contain">
+    <div class="title">👉{{ notice.title }}</div>
+    <hr color="black" width="55%" align="left">
+    <div class="date">{{ notice.date }}</div><br><br>
+    <div class="box"><br>
+        <div>{{ notice.image }}</div>
+        <div>{{ notice.content }}</div>
+    </div>
+    <br>
+    <a href="{% url 'home' %}" class="btn" style="color:white;">돌아가기</a>
+</div>
 {% endblock content %}

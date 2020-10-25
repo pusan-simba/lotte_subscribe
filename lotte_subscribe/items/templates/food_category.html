@@ -21,26 +21,26 @@
         <div><strong>{{ item.name }}</strong></div>
         <div>{{ item.explain }}</div>
 
-        {% if user.is_authnticated %}
-            <a href="{% url 'like_toggle' item.id %}">
+        {% if user.is_authenticated %}
+        <a href="{% url 'like_toggle' item.id %}">
             {% if item in user.likes.all %}
             <img src="{% static '꽉찬 하트.png' %}" class="full-heart">
             {% else %}
             <img src="{% static '빈 하트.png' %}">
             {% endif%}
-            </a>
-            <a href="{% url 'subscribe_toggle' item.id %}" class="empty-heart">
-        {% if item in user.subscribes.all %}
-        <div class="unsub">구독 취소</div>
-        {% else %}
-        <div class="sub">구독 하기</div>
-        {% endif%}
-    </a>
+        </a>
+        <a href="{% url 'subscribe_toggle' item.id %}" class="empty-heart">
+            {% if item in user.subscribes.all %}
+            <div class="unsub">구독 취소</div>
+            {% else %}
+            <div class="sub">구독 하기</div>
+            {% endif%}
+        </a>
         {% endif%}
     </div>
-        {% endfor %}
-       
-    
+    {% endfor %}
+
+
 
 </div>
 <script>
