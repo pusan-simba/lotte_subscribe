@@ -154,14 +154,20 @@ a:hover {
         top: 50px;
     }
 }
-
+.introduce-img{
+    position: absolute;
+    top: 18%;
+    left: 20%;
+    width: 40%;
+    height: 70%;
+}
 
 .introduce-img>img {
     width: 100%;
     height: 100%;
 }
 
-
+/* 
 .decoration-img>img {
     width: 100%;
     height: 100%;
@@ -273,7 +279,7 @@ a:hover {
         width: 200px;
         height: 200px;
     }
-}
+} */
 
 @media(max-width: 476px) {
     .top-logo {
@@ -512,13 +518,42 @@ li>p {
     color: white;
     box-shadow: 3px 3px 5px rgb(211, 208, 208);
 }
-/* .fix-wrap{
-    display: hidden;
+.fix-wrap{
+    display: none;
     position:absolute;
-    width: 70%;
-    height: 70%;
-    background: #dd5954;
-} */
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    background-color: white;
+}
+.lion{
+    width:50%;
+    height:40%;
+    position: absolute;
+    top:30%;
+    left:23%;
+
+}
+.text-message{
+    font-size: 20px;
+    position: absolute;
+    width:70%;
+    left:15%;
+    text-align: center;
+    bottom:10%;
+    color: rgb(101, 100, 100);
+    font-weight: initial;
+}
+
+
+
+
+@media(max-width:500px){
+    .fix-wrap{
+        display: block;
+    }
+}
 /* 반응형적용 */
 @media(max-width:1300px){
     input{

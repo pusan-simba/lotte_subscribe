@@ -103,35 +103,37 @@
         </div>
     </div>
 
-    <!-- <div class="fix-wrap">
-        <div>
-            공사중
+    <div class="fix-wrap">
+            <img class="lion" src="{% static '사자.jpg' %}">
+        <div class="text-message">
+            모바일 화면 공사중입니다.<br>
+            빠른 시일 내에 찾아뵙겠습니다.
         </div>
-        <div> -->
+        <div>
 
-    <script>
+            <script>
 
-        nav = document.querySelector('.nav');
-        const navIcon = document.querySelector(".nav-icon");
+                nav = document.querySelector('.nav');
+                const navIcon = document.querySelector(".nav-icon");
 
 
 
-        navIcon.addEventListener('click', () => {
-            if (nav.style.display == "none") {
-                openNav();
-            }
-            else {
-                closeNav();
-            }
-        });
-        function openNav() {
-            nav.style.display = "inline-block";
-            navIcon.innerHTML = "X";
-        }
-        function closeNav() {
-            nav.style.display = 'none';
-            navIcon.innerHTML = '<img src="static/menuicon.png">';
-        };
+                navIcon.addEventListener('click', () => {
+                    if (nav.style.display == "none") {
+                        openNav();
+                    }
+                    else {
+                        closeNav();
+                    }
+                });
+                function openNav() {
+                    nav.style.display = "inline-block";
+                    navIcon.innerHTML = "X";
+                }
+                function closeNav() {
+                    nav.style.display = 'none';
+                    navIcon.innerHTML = '<img src="static/menuicon.png">';
+                };
 
 
 
@@ -147,8 +149,8 @@
 
 
 
-    </script>
-    <script src="{% static 'js/login.js' %}"></script>
+            </script>
+            <script src="{% static 'js/login.js' %}"></script>
 </body>
 
 </html>
