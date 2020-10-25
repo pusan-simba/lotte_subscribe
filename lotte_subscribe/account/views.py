@@ -97,7 +97,6 @@ def my_subscribes(request):
     user = request.user
     items = user.subscribes.all()
     context['items'] = items
-    
   
     return render(request, 'my_subscribes.html', context)
 
@@ -108,21 +107,45 @@ def my_likes(request):
 
     user = request.user
     items = user.likes.all()
+
     context['items'] = items
-  
     return render(request, 'my_likes.html', context)
     
 @login_required
 def lotte_edituser(request):
-    if request.method == 'GET':
-        user = request.user
-        context = dict()
-        context['name'] = user.name
-        context['address'] = user.address
-        context['phone'] = user.phone_number
+    user = request.user
+    context = dict()
+    context['name'] = user.name
+    context['address'] = user.addresss
+    context['phone'] = user.phone_number
+        
+    categories = Category.objects.all()
+    context['categories'] = categories
 
+    if request.method == 'GET':    
         return render(request, 'edituser.html', context)
     else:
+        name = request.POST['name']
+        # address = request.POST['address']
+        phone = request.POST['phone']
+
+        password_confirm = request.POST['password_confirm']
+        password = request.POST['password']
+
+        if password != password_confirm:
+            message = "비밀번호를 확인하세요"
+            context['message'] = message
+            return render(request, 'edituser.html', context)
+
+        user.name = name
+        # user.addresss = address
+        user.phone_number = phone 
+        
+        if password != '':
+            user.set_password(password)
+
+        user.save()
+        login(request, user)
         return redirect('home')
 
 def address_api(request):

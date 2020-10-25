@@ -1,65 +1,33 @@
 {% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block head %}
+{% block head %}
     <title>구독중인 서비스</title>
-    {% endblock head%}
     <link rel="stylesheet" type="text/css" href="{% static 'css/my_subscribes.css' %}">
-</head>
+{% endblock head%}
 
-<body>
-    {% block content %}
+{% block content %}
     내 구독 관리
     <hr>
    
     {% for item in items %}
-<<<<<<< HEAD
-    <div>{{ item.name }}</div>
-    <div>{{ item.explain }}</div>
-    <div>{{ item.category }}</div>
-
-    {% if item in user.likes.all %}
-        <div>unlike</div>
-    {% else %}
-        <div>like</div>
-    {% endif%}
-    {% if item in user.subscribes.all %}
-        <div>unsub</div>
-    {% else %}
-        <div>sub</div>
-    {% endif%}
-    <br>
-    {% endfor %}
-    {% for category in categories %}
-    <div>
-        <a href="{% url 'category' category.id %}">{{ category.name }}</a>
-    </div>
-=======
        
         <div><img src="{{ item.image.url }}"></div>
         <div>{{ item.name }}</a></div>
         <div>{{ item.explain }}</div>
         <div>{{ item.category }}</div>  
-        <!-- {% if user.is_authenticated %}
+        
+         {% if user.is_authenticated %}
         <a href="{% url 'subscribe_toggle' item.id %}">
         {% if item in user.subscribes.all %}
         <div class="unsub">구독 취소</div>
         {% else %}
         <div class="sub">구독 하기</div>
-        {% endif%}
+        {% endif%} 
     </a>
-        {% endif%} -->
+        {% endif%}
     
->>>>>>> 49e60e017bcc148f13ebf674d74e07e379a8cf43
     {% endfor %}
     <br>
 
-    {% endblock content %}
-</body>
-
-</html>
+{% endblock content %}

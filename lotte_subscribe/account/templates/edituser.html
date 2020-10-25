@@ -5,5 +5,14 @@
 {% endblock head%}
 
 {% block content %}
-
+    <form action="{% url 'edituser' %}" method="POST">
+        {% csrf_token %}
+        <label for="name">이름</label><input type="text" name="name" value="{{ name }}">
+        <!-- <label for="address">주소</label><input type="text" name="address" value="{{ address }}"> -->
+        <label for="phone">전화번호</label><input type="text" name="phone" value="{{ phone }}">
+        <label for="password">비밀번호</label><input type="text" name="password">
+        <label for="password">비밀번호 확인</label><input type="text" name="password_confirm">
+        <input type="submit" value="변경">
+    </form>
+    <div>{{ message }}</div>
 {% endblock content %}
